@@ -39,7 +39,7 @@
 
                 <div class="backgroud-avatar">
 
-                    <img src="{{ url("storage/app/public/jogadores/{$avatar}")}}" alt="{{Auth::user()->name}}"/></div>
+                    <img src="{{ url("storage/jogadores/{$avatar}")}}" alt="{{Auth::user()->name}}"/></div>
                 <div class="dados-avatar">
 
                     <div id="poupover" style="display: none">
