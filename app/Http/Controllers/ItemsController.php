@@ -245,7 +245,7 @@ class ItemsController extends Controller
 //
                     if ($dados_rifas->avatar) {
 
-                        $foto =  url("storage/app/public/jogadores/{$dados_rifas->avatar}");
+                        $foto =  url("storage/jogadores/{$dados_rifas->avatar}");
                     } else {
                         $foto = '/imagem/profiler.png';
                     }
