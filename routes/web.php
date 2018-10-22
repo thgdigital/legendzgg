@@ -52,6 +52,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function ($router
         Route::get('loja-invantario', ['as'=> 'lojaInvatario', 'uses'=> 'LojaController@lojaInvatario']);
         Route::get('compra-ativar/{id}', ['as'=> 'compraAtivar', 'uses'=> 'LojaController@compraAtivar']);
         Route::get('compra-desativar/{id}', ['as'=> 'compraDesativar', 'uses'=> 'LojaController@compraDesativar']);
+        Route::get('compra-editar/{id}', ['as'=> 'compraEditar', 'uses'=> 'LojaController@compraEditar']);
+        Route::post('editar-compra', ['as'=> 'editarCompra', 'uses'=> 'LojaController@editarCompra']);
+        Route::post('salvar-compra', ['as'=> 'salvarCompra', 'uses'=> 'LojaController@salvarCompra']);
 
     });
 

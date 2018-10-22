@@ -94,7 +94,8 @@ class UserController extends Controller
     public function updateImagem(Request $request,$id){
         if($request->hasFile('file') && $request->file('file')->isValid())
         {
-            $data =     User::find($id);
+            $data = User::find($id);
+
             if($data->avatar != null){
 
                 unlink(public_path('assets/imagem/admin/'.$data->avatar));

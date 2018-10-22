@@ -8,11 +8,11 @@ class Loja extends Model
 {
     //
     protected $fillable = [
-         'status', 'tipo'
+         'status', 'tipo','item_id'
     ];
 
     public function items() {
-        return $this->belongsToMany(Item::class, 'items_loja')->withTimestamps();
+        return $this->belongsTo(Item::class, 'item_id');;
 
 
     }

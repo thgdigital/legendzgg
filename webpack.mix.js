@@ -28,6 +28,7 @@ mix.scripts([
     'resources/assets/plugins/slimScroll/jquery.slimscroll.min.js',
     'resources/assets/plugins/fastclick/fastclick.js',
     'resources/assets/plugins/morris/morris.min.js',
+    'resources/assets/plugins/select2/select2.min.js',
 
 
 ], 'public/admin/js/all.js');
@@ -43,6 +44,7 @@ mix.styles([
     'resources/assets/plugins/datepicker/datepicker3.css',
     'resources/assets/plugins/daterangepicker/daterangepicker.css',
     'resources/assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css',
+    'resources/assets/plugins/select2/select2.min.css',
 
 
 
