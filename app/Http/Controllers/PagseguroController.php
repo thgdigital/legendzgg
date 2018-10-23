@@ -76,7 +76,7 @@ class PagseguroController extends Controller
             $Data["itemAmount1"] = "1.00";
             $Data["itemQuantity1"] = $carrinho['qtd'];
             $Data["reference"] = "$saved->id";
-            $Data["notificationURL="] = "http://legendzgg.com/novo/notificacao-pagseguro";
+            $Data["notificationURL="] = "http://legendzgg.com/notificacao-pagseguro";
 //
 
         $url = "https://ws.sandbox.pagseguro.uol.com.br/v2/checkout";

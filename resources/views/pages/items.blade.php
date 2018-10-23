@@ -9,9 +9,16 @@
 @section('pageTitle',$item->name)
 <div class="row">
     <div class="col-md-6">
+
         <div class="image-detail-rifas border-image border-color-azul">
-            <a href="imagem/akali-1.jpg" data-lightbox="example-set"> <img
-                        src="{{ asset('assets/imagem/rifas/'.$item->imagem) }}"></a>
+
+
+            <a href="imagem/akali-1.jpg" data-lightbox="example-set">
+
+
+                <img width="409" height="362" src="<?=
+                $url = asset('assets/imagem/rifas/'.$item->imagem);
+                Croppa::url("$url", 409,362)?>" /></a>
             <span class="title-detail-rifas shadow-azul"> {{$item->name}}</span>
         </div>
     </div>

@@ -163,6 +163,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Folklore\Image\ImageServiceProvider::class,
+        Bkwld\Croppa\ServiceProvider::class,
 
         /*
          * Package Service Providers...
@@ -227,6 +228,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Image' => Folklore\Image\Facades\Image::class,
+        'Croppa' => Bkwld\Croppa\Facade::class,
 
     ],
 
