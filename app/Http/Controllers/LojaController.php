@@ -129,8 +129,10 @@ class LojaController extends Controller
         $itemTemp = Slider::find($id);
 
         if($itemTemp->imagem != null){
-            unlink( storage_path('app/public/slider/'.$itemTemp->imagem));
+
             Croppa::delete("storage/slider/$itemTemp->imagem");
+            unlink( storage_path('app/public/slider/'.$itemTemp->imagem));
+
             $itemTemp->delete();
 
             return redirect('/admin/loja/slider-compra')->with('success', 'Imagem removida com sucesso');

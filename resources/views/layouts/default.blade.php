@@ -8,7 +8,7 @@
 
 @include('includes.header')
 
-    <div class="main">
+    <div class="main" id="app">
         <div>
             @include('includes.sidebarleft')
         </div>
@@ -32,7 +32,7 @@
 
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
-        <script src="{{ asset('admin/js/all.js') }}"></script>
+
     </div>
         @include('includes.footer')
         @stack('scripts')
