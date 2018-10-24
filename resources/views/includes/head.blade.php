@@ -15,6 +15,7 @@
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/style.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/chat.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/plugins/select2/select2.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('assets/css/jquery.fancybox.min.css') }}">
 <link rel="stylesheet/scss" type="text/css" href="{{ asset('assets/scss/_custom-forms.scss') }}">
 <link rel="stylesheet/scss" type="text/css" href="//cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/sass.js/0.6.3/sass.min.js"></script>

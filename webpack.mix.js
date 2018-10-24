@@ -28,7 +28,7 @@ mix.scripts([
     'resources/assets/plugins/jvectormap/jquery-jvectormap-1.2.2.min.js',
     'resources/assets/plugins/jvectormap/jquery-jvectormap-world-mill-en.js',
     'resources/assets/plugins/knob/jquery.knob.js',
-    'resources/assets/plugins/daterangepicker/daterangepicker.js',
+    'resources/assets/plugins/axiosdaterangepicker/daterangepicker.js',
     'resources/assets/plugins/datepicker/bootstrap-datepicker.js',
     'resources/assets/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js',
     'resources/assets/plugins/slimScroll/jquery.slimscroll.min.js',

@@ -25,6 +25,7 @@
         <script src="{{ asset('admin/js/app.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.mask.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.validate.js') }}"></script>
+        <script src="{{ asset('assets/js/jquery.fancybox.min.js') }}"></script>
         <script type="text/javascript" src=
         "https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
 

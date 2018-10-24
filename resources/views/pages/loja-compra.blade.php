@@ -76,11 +76,15 @@
                 </a>
             </div>
                 @endif
+
+
+
             <ul id="loja-inventario-sub">
                 @if ($compras)
                     @foreach ($compras as $compra)
 
                 <li>
+                    <a data-fancybox data-src="#hidden-content-<?php echo $compra->items->id; ?>" href="javascript:;">
                     <div class="thumbnail-loja">
 
                         <?php
@@ -88,13 +92,55 @@
                         ?>
                         <img  src="<?=
 
-                        Croppa::url("/storage/rifas/$path", 166,150)?>" /></a>
+                        Croppa::url("/storage/rifas/$path", 166,150)?>" />
 
                         <span class="desconto">-50%</span>
                         <div class="description-loja">
                             <span class="title-loja">{{$compra->items->name}}</span>
                             <span class="numeber-loja">{{$compra->items->valor_rp}}</span>
 
+                        </div>
+                    </div>
+                      </a>
+                    <div style="display: none; width: 600px; height: 400px"  id="hidden-content-<?php echo  $compra->items->id; ?>">
+                        <div class="row">
+                            <div class="col-sm-5">
+                                <div class="thumbnail-loja">
+
+                                    <?php
+                                    $path = $compra->items->imagem;
+                                    ?>
+                                    <img  src="<?=
+
+                                    Croppa::url("/storage/rifas/$path", 166,150)?>" /></a>
+
+                                    <div class="description-loja">
+                                        <span class="title-loja">{{$compra->items->name}}</span>
+                                        <span class="numeber-loja">{{$compra->items->valor_rp}}</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-7">
+                                <div class="modal-descricao">
+                                <h4>Como deseja finalizar a compra</h4>
+                                <p>{{$compra->items->name}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-modal">
+                        <div class="row">
+<div class="col-sm-6">
+    <button class="btn btn-lg btn-laranja">
+        <img src="{{asset('assets/imagem/moeda.png')}}"> Credito
+        {{$compra->items->valor_credito}}</button>
+</div>
+<div class="col-sm-6">
+    <button class="btn btn-lg btn-amarelo">
+        <img src="{{asset('assets/imagem/moeda-essencia.png')}}" width="33" height="33">{{$compra->items->valor_credito}}
+        ESSÊNCIAS </button>
+</div>
+                        </div>
                         </div>
                     </div>
 
