@@ -69,7 +69,7 @@
             </div>
             @else
                 <div class="div_menu_media5" style="float:right; margin-top:25px;padding-right: 70px; ">
-                    <a href="#" class="dropdown-toggle btEntrar" role="button" style="" data-toggle="modal" data-target="#loginModal">
+                    <a href="{{url("jogador/login")}}" class="dropdown-toggle btEntrar" >
                         <span class="hidden-xs">
                             <i class="fa fa-unlock-alt fazul" aria-hidden="true"></i>
                             Entrar
