@@ -13,12 +13,12 @@
         <div class="image-detail-rifas border-image border-color-azul">
 
 
-            <a href="imagem/akali-1.jpg" data-lightbox="example-set">
+            <a href="#" data-lightbox="example-set">
 
 
                 <img width="409" height="362" src="<?=
-                $url = asset('assets/imagem/rifas/'.$item->imagem);
-                Croppa::url("$url", 409,362)?>" /></a>
+
+                Croppa::url("/storage/rifas/$item->imagem", 409,362)?>" /></a>
             <span class="title-detail-rifas shadow-azul"> {{$item->name}}</span>
         </div>
     </div>

@@ -1,7 +1,7 @@
 @extends('layouts.default')
 @section('pageTitle', 'Carrinho de compras')
 @section('content')
-
+    @include('includes.menu')
 
     <div class="box-perfil">
 

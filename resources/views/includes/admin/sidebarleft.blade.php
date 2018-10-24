@@ -91,13 +91,37 @@
             </li>
             <li class="treeview {{setActive('admin/loja')}}">
                 <a href="#">
+                    <i class="fa fa-shopping-cart"></i> <span>Loja</span>
+                    <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+
+                    <li class="{{setActive('admin/loja')}}">
+                        <a href="#"><i class="fa fa-circle-o"></i> Loja Compra
+                            <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="{{setActive('admin/loja/loja-compra')}}"><a href="{{url("admin/loja/loja-compra")}}"><i class="fa fa-circle-o"></i> Listar items</a></li>
+                            <li class="{{setActive('admin/loja/slider-compra')}}"><a href="{{url("admin/loja/slider-compra")}}"><i class="fa fa-circle-o"></i> Configurar Slider</a></li>
+
+                        </ul>
+                    </li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+                </ul>
+            </li>
+            <li class="treeview">
+                <a href="#">
                     <i class="fa  fa-shopping-cart"></i> <span>Loja</span>
                     <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="{{setActive('admin/loja/loja-compra')}}"><a href="{{url("admin/loja/loja-compra")}}"><i class="fa fa-circle-o"></i> Loja Compra</a></li>
+
                     <li class="{{setActive('admin/loja/loja-invantario')}}"><a href="{{url("admin/loja/loja-invantario")}}"><i class="fa fa-circle-o"></i> Loja Invantario</a></li>
                 </ul>
             </li>

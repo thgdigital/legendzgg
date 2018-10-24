@@ -194,14 +194,16 @@ class ItemsController extends Controller
         {
             $itemTemp =     Item::find($id);
             $data =  $itemTemp->first();
-            unlink( public_path('assets/imagem/rifas/'.$data->imagem));
+            unlink( storage_path('app/public/rifas/'.$data->imagem));
+            Croppa::delete("storage/rifas/$data->imagem");
+
             $name =  $data->id.kebab_case($data->name);
 
             $extension = $request->file('file')->extension();
 
             $nameFile = "{$name}.{$extension}";
 
-            $upload =  $request->file('file')->move(public_path('assets/imagem/rifas/'), $nameFile);
+            $upload =  $request->file('file')->storeAs('rifas', $nameFile, 'public');
 
             $data->imagem =  $nameFile;
 

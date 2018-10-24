@@ -258,12 +258,12 @@ select[name="cadList_length"]{
 	width      : 100%;
 	margin-top : 20px;
 	position   : relative;
-	height: 190px;
+
 }
 
 .image-rifas a > img {
 	width : 100%;
-	height: 190px;
+
 }
 .menu-rifas  span.icon-right{
 margin-top: 10px;
@@ -2001,6 +2001,9 @@ footer {
 	box-shadow         : inset -5px -5px 5px #888888;
 
 }
+#loja-inventario-sub li:nth-child(5n) {
+	margin-right: 0;
+}
 
 #loja-inventario-sub li {
 	float         : left;
@@ -2034,7 +2037,7 @@ footer {
 	box-shadow         : inset -5px -5px 5px #888888;
 	height             : 150px;
 	width              : 100%;
-	background         : blue
+
 }
 
 .thumbnail-loja .desconto {
@@ -2055,10 +2058,7 @@ footer {
 
 .thumbnail-loja img {
 	width   : 100%;
-	height  : 150px;
 	float   : left;
-	display : none;
-
 }
 
 .thumbnail-loja .description-loja {

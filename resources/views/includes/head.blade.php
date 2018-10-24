@@ -7,6 +7,7 @@
 <title>Legendzgg - @yield('pageTitle')</title>
 <link href="{{ asset('assets/imagem/favicon.ico') }}" rel="shortcut icon">
 <!-- load bootstrap from a cdn -->
+<link rel="stylesheet" type="text/css" href="{{ mix('admin/css/app.css') }}">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="{{ asset('assets/css/lightbox.min.css') }}">

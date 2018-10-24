@@ -55,6 +55,10 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function ($router
         Route::get('compra-editar/{id}', ['as'=> 'compraEditar', 'uses'=> 'LojaController@compraEditar']);
         Route::post('editar-compra', ['as'=> 'editarCompra', 'uses'=> 'LojaController@editarCompra']);
         Route::post('salvar-compra', ['as'=> 'salvarCompra', 'uses'=> 'LojaController@salvarCompra']);
+        Route::get('slider-compra', ['as'=> 'sliderCompra', 'uses'=> 'LojaController@sliderCompra']);
+        Route::get('slider-compra-create', ['as'=> 'formSliderCompra', 'uses'=> 'LojaController@formSliderCompra']);
+        Route::get('slider-compra-delete/{id}', ['as'=> 'deleteSliderCompra', 'uses'=> 'LojaController@deleteSliderCompra']);
+
 
     });
 
@@ -105,6 +109,11 @@ Route::group(['middleware' => ['web']], function ($router) {
 //    $router->group(['prefix' => 'admin', 'namespace' => 'Auth'], function ($router) {
 //        require app_path('../routes/admin.php');
 //    });
+
+});
+Route::group(['as'=> 'loja.' ,'prefix'=> 'loja', 'middleware' => ['auth:jogador'] ], function() {
+    Route::get('', ['as'=> 'index', 'uses'=> 'LojaController@index']);
+    Route::get('loja-compra', ['as'=> 'webLojaCompra', 'uses'=> 'LojaController@webLojaCompra']);
 
 });
 

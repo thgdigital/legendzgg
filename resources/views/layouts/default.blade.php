@@ -22,7 +22,7 @@
 
 
     <div class="clear">
-        <script src="{{ asset('assets/js/jquery.min.js') }}"></script>
+        <script src="{{ asset('admin/js/app.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.mask.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.validate.js') }}"></script>
         <script type="text/javascript" src=
@@ -32,6 +32,7 @@
 
         <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
         <script src="//cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script src="{{ asset('admin/js/all.js') }}"></script>
     </div>
         @include('includes.footer')
         @stack('scripts')

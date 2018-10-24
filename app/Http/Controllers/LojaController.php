@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Item;
 use App\Models\Loja;
+use App\Models\Slider;
 use App\Repositories\LojaRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -98,6 +99,72 @@ class LojaController extends Controller
 
 
     }
+
+    public function sliderLojaCompra(){
+
+    }
+
+    public function webLojaCompra(){
+        $whre = ['tipo' => 1, 'status'=> 1];
+
+        $compras = Loja::where($whre)->with(['items' => function ($query){
+            $query->where('status', 1);
+        }])->orderBy('id', 'asc')->get();
+
+        $slider = Slider::all();
+
+        return view('pages.loja-compra')->with(['compras'=> $compras, 'sliders'=> $slider]);
+    }
+
+    public function sliderCompra(){
+        $imagem = Slider::where(["tipo"=> 1])->get();
+        return view('pages.admin.listSlider')->with(['imagens'=> $imagem]);
+
+    }
+    public function formSliderCompra(){
+        return view('pages.admin.imagelojaCompra');
+    }
+
+    public function deleteSliderCompra($id){
+        $itemTemp = Slider::find($id);
+
+        if($itemTemp->imagem != null){
+            unlink( storage_path('app/public/slider/'.$itemTemp->imagem));
+            Croppa::delete("storage/slider/$itemTemp->imagem");
+            $itemTemp->delete();
+
+            return redirect('/admin/loja/slider-compra')->with('success', 'Imagem removida com sucesso');
+        }
+    }
+
+    public function storeSliderCompra(Request $request){
+
+        if($request->hasFile('file') && $request->file('file')->isValid())
+        {
+            $itemTemp = Slider::create([
+                'tipo'=> 1,
+                'status'=> 1
+            ]);
+
+            $name =  $itemTemp->id.kebab_case("tse".$itemTemp->id);
+
+
+            $extension = $request->file('file')->extension();
+
+            $nameFile = "{$name}.{$extension}";
+
+            $upload =  $request->file('file')->storeAs('slider', $nameFile, 'public');
+
+            $itemTemp->imagem =  $nameFile;
+
+
+            $itemTemp->save();
+
+            return response()->json($itemTemp);
+        }
+
+    }
+
 
     public function lojacompra(){
 

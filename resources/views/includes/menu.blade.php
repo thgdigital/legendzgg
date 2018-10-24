@@ -5,5 +5,7 @@
     <li><a href="#">BRINDE</a></li>
     <li><a href="#">SAQUE</a></li>
 
-    <li><a href="#" class="active-comprar">COMPRAR CREDITOS</a></li>
+    <li><a href="#"
+           class="{{setFrontActive('pagseguro/carrinho')}}"
+           >COMPRAR CREDITOS</a></li>
 </ul>

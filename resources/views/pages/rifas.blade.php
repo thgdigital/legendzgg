@@ -51,7 +51,9 @@
                         <div class="image-rifas border-image border-color-<?php echo $cor; ?>">
 
                             <a href="{{url("items/$item->slug")}}">
-                                <img src="{{ asset('assets/imagem/rifas/'.$urlImage) }}">
+
+                                <img
+                                     src="<?=Croppa::url('/storage/rifas/'.$urlImage, 260, 190)?>"/>
 
                             </a>
                             <span class="title-img-rifas shadow-<?php echo $cor; ?>">  {{$item->name}}</span>

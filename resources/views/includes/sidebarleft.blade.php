@@ -47,7 +47,7 @@
         </ul>
         <ul class="nav nav-sidebar-sub " id="menu">
             <li class="">
-                <a href="#" class="">
+                <a href="{{url('loja/loja-compra')}}" class="">
                     <img src="{{ asset('assets/imagem/loja.png') }}">
                     <span class="text-sidebar"> LOJA</span>
                 </a>

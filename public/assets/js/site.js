@@ -39,7 +39,6 @@ Vue.component('edit-items', require('./components/EditItems.vue'));
 Vue.component('image-item', require('./components/ImageItem.vue'));
 Vue.component('nova-rifa', require('./components/NovaRifa.vue'));
 Vue.component('imagem-admin', require('./components/ImageAdmin.vue'));
-Vue.component('imagem-compra-loja', require('./components/ImageCompraLoja.vue'));
 const app = new Vue({
     el: '#app',
     data: {

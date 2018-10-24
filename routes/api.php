@@ -30,6 +30,11 @@ Route::group(['as'=> 'transacao.' ,'prefix'=> 'transacao' ], function() {
 
 
 });
+
+Route::group(['as'=> 'loja.' ,'prefix'=> 'loja'], function() {
+
+    Route::post('salvar-compra', ['as' => 'store', 'uses' => 'LojaController@storeSliderCompra']);
+});
 Route::group(['as'=> 'pagseguro.' ,'prefix'=> 'pagseguro'], function() {
 
     Route::post('salvar', ['as' => 'store', 'uses' => 'PagseguroController@store']);
