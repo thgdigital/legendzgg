@@ -74,6 +74,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function ($router
 
     });
 
+
+    Route::group(['as'=> 'items.' ,'prefix'=> 'items', 'middleware' => ['auth:admin'] ], function() {
+        Route::get('home', ['as'=> 'home', 'uses'=> 'ItemsController@index']);
+        Route::get('create', ['as'=> 'create', 'uses'=> 'ItemsController@create']);
+
+    });
+
     Route::group(['as'=> 'usuarios.' ,'prefix'=> 'user', 'middleware' => ['auth:admin'] ], function() {
         Route::get('', ['as'=> 'list', 'uses'=> 'Jogador\JogadorController@admin']);
         Route::get('edit/{id}', ['as'=> 'findUser', 'uses'=> 'Jogador\JogadorController@findUser']);

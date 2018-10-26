@@ -19,6 +19,9 @@ class ItemsController extends Controller
     public function index()
     {
         //
+        $items = Item::all();
+
+        return view('pages.admin.listitems')->with('items', $items);
     }
 
     /**
@@ -29,6 +32,7 @@ class ItemsController extends Controller
     public function create()
     {
         //
+        return view('pages.admin.cadItems');
     }
 
     /**
@@ -66,8 +70,52 @@ class ItemsController extends Controller
         $user->saldo->saldo = $user->saldo->saldo - $valor_Total;
         $user->saldo->save();
     }
+
+    public function salvarItems(Request $request)
+    {
+//        $validatedData = Validator::make($request->all(), [
+//            'ativo' => 'required',
+//            'name' => 'required',
+//            'number' => 'required',
+//            'resgatavel' => 'required',
+//            'slug' => 'required',
+//            'ativado' => 'required',
+//            'valor_rifa' => 'required',
+//            'valor_rp' => 'required',
+//            'valor_venda' => 'required'
+//
+//        ]);
+////
+//        if ($validatedData->fails()) {
+//            return response()->json($validatedData->fails());
+//        }
+
+
+        $saved = Item::create([
+
+            'name' => $request->input('name'),
+            'num_rifias' => $request->input('number'),
+            'resgatavel' => $request->input('resgatavel') == true ? 1: 0 ,
+            'slug' => $request->input('slug'),
+            'status' => $request->input('ativo') == true ? 1: 0 ,
+            'valor_rifa' => $request->input('valor_rifa'),
+            'valor_rp' => $request->input('valor_rp'),
+            'valor_venda' => $request->input('valor_venda'),
+            'valor_essencia' => $request->input('valor_essencia'),
+            'valor_credito' => $request->input('valor_credito'),
+        ]);
+
+        if($saved){
+            return response()->json(["status"=> true, "message"=> "Dados salvos com sucesso"]);
+        }
+        return response()->json(["status"=> false, "message"=> "Error ao salvar dados"]);
+
+
+    }
+
     public function salvar(Request $request)
     {
+
 //        $validatedData = Validator::make($request->all(), [
 //            'ativo' => 'required',
 //            'name' => 'required',
@@ -98,9 +146,22 @@ class ItemsController extends Controller
             'valor_rifa' => $request->input('valor_rifa'),
             'valor_rp' => $request->input('valor_rp'),
             'valor_venda' => $request->input('valor_venda'),
+            'valor_essencia' => $request->input('valor_essencia'),
+            'valor_credito' => $request->input('valor_credito'),
         ]);
 
-        return ["status"=> $status];
+
+
+        if($status){
+            $item->valor_essencia = $request->input('valor_essencia');
+            $item->valor_credito = $request->input('valor_credito');
+
+        }
+
+        $saved = $item->save();
+
+
+        return ["status"=> $saved];
     }
 
     /**

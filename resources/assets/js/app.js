@@ -36,6 +36,7 @@ Vue.component('list-rifas', require('./components/ListRifas.vue'));
 Vue.component('list-items', require('./components/ListItems.vue'));
 Vue.component('list-transacoes', require('./components/ListTransacoes.vue'));
 Vue.component('edit-items', require('./components/EditItems.vue'));
+Vue.component('cad-items', require('./components/CadItems.vue'));
 Vue.component('image-item', require('./components/ImageItem.vue'));
 Vue.component('nova-rifa', require('./components/NovaRifa.vue'));
 Vue.component('imagem-admin', require('./components/ImageAdmin.vue'));

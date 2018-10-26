@@ -61,7 +61,7 @@
                 <li class="{{setActive('admin/administradores/create')}}">
                     <a href="{{route('administradores.create')}}"><i class="fa fa-circle-o"></i> Criar cadastro</a></li>
 
-                <li><a href="{{route('administradores.index')}}"><i class="fa fa-circle-o"></i> Listar Administradores</a></li>
+                <li ><a href="{{route('administradores.index')}}"><i class="fa fa-circle-o"></i> Listar Administradores</a></li>
             </ul>
             </li>
             <li class="{{setActive('admin/transacao')}}">
@@ -75,6 +75,20 @@
                     <i class="fa fa-ticket"></i> <span>Suporte</span>
                      </span>
                 </a>
+            </li>
+            <li class="treeview {{setActive('admin/items')}}">
+                <a href="#"><i class="fa fa-circle-o"></i> Items
+                    <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
+                </a>
+
+                <ul class="treeview-menu">
+                    <li class="{{setActive('admin/items/create')}}">
+                        <a href="{{route('items.create')}}"><i class="fa fa-circle-o"></i> Criar Item</a></li>
+
+                    <li class="{{setActive('admin/items/home')}}"><a href="{{route('items.home')}}"><i class="fa fa-circle-o"></i> Listar Items</a></li>
+                </ul>
             </li>
             <li class="treeview {{setActive('admin/rifas')}}">
                 <a href="#">

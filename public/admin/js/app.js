@@ -9893,6 +9893,7 @@ Vue.component('list-rifas', __webpack_require__(224));
 Vue.component('list-items', __webpack_require__(227));
 Vue.component('list-transacoes', __webpack_require__(230));
 Vue.component('edit-items', __webpack_require__(233));
+Vue.component('cad-items', __webpack_require__(256));
 Vue.component('image-item', __webpack_require__(236));
 Vue.component('nova-rifa', __webpack_require__(239));
 Vue.component('imagem-admin', __webpack_require__(242));
@@ -78800,6 +78801,35 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var baseUrl = $('meta[name=base-url]').attr("content");
 
@@ -78817,6 +78847,8 @@ function Items(_ref) {
         valor_rifa = _ref.valor_rifa,
         valor_venda = _ref.valor_venda,
         valor_rp = _ref.valor_rp,
+        valor_credito = _ref.valor_credito,
+        valor_essencia = _ref.valor_essencia,
         resgatavel = _ref.resgatavel;
 
     this.id = id;
@@ -78834,6 +78866,8 @@ function Items(_ref) {
     this.resgatavel = resgatavel == 1 ? true : false;
     this.status = status == 1 ? "Ativado" : "Desativado";
     this.ativo = status == 1 ? true : false;
+    this.valor_credito = valor_credito;
+    this.valor_essencia = valor_essencia;
 }
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['id'],
@@ -78956,6 +78990,7 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
+    _vm._v("\n" + _vm._s(_vm.item) + "\n            "),
     _c(
       "div",
       { staticClass: "col-sm-12" },
@@ -79240,6 +79275,104 @@ var render = function() {
                       _c("strong", [_vm._v(_vm._s(_vm.errors.first("number")))])
                     ])
                   ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-6" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "form-group",
+                    class: [_vm.errors.first("credito") ? "has-error" : ""]
+                  },
+                  [
+                    _c("label", [_vm._v("Valor de creditos")]),
+                    _vm._v(" "),
+                    _c(
+                      "money",
+                      _vm._b(
+                        {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { name: "credito" },
+                          model: {
+                            value: _vm.item.valor_credito,
+                            callback: function($$v) {
+                              _vm.$set(_vm.item, "valor_credito", $$v)
+                            },
+                            expression: "item.valor_credito"
+                          }
+                        },
+                        "money",
+                        _vm.money,
+                        false
+                      )
+                    ),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "help-block" }, [
+                      _c("strong", [
+                        _vm._v(_vm._s(_vm.errors.first("credito")))
+                      ])
+                    ])
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-6" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "form-group",
+                    class: [_vm.errors.first("essencia") ? "has-error" : ""]
+                  },
+                  [
+                    _c("label", [_vm._v("Valor de essencia")]),
+                    _vm._v(" "),
+                    _c(
+                      "money",
+                      _vm._b(
+                        {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { name: "essencia" },
+                          model: {
+                            value: _vm.item.valor_essencia,
+                            callback: function($$v) {
+                              _vm.$set(_vm.item, "valor_essencia", $$v)
+                            },
+                            expression: "item.valor_essencia"
+                          }
+                        },
+                        "money",
+                        _vm.money,
+                        false
+                      )
+                    ),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "help-block" }, [
+                      _c("strong", [
+                        _vm._v(_vm._s(_vm.errors.first("essencia")))
+                      ])
+                    ])
+                  ],
+                  1
                 )
               ])
             ]),
@@ -80964,6 +81097,787 @@ if (false) {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
+
+/***/ }),
+/* 249 */,
+/* 250 */,
+/* 251 */,
+/* 252 */,
+/* 253 */,
+/* 254 */,
+/* 255 */,
+/* 256 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(10)
+/* script */
+var __vue_script__ = __webpack_require__(257)
+/* template */
+var __vue_template__ = __webpack_require__(258)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/CadItems.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-9925005e", Component.options)
+  } else {
+    hotAPI.reload("data-v-9925005e", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 257 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var baseUrl = $('meta[name=base-url]').attr("content");
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            title: '',
+            money: {
+                decimal: ',',
+                thousands: '.',
+                prefix: 'R$ ',
+                suffix: '',
+                precision: 2,
+                masked: false
+            },
+            item: {
+                slug: "",
+                name: ""
+            },
+            baselUrl: baseUrl,
+            form: {
+                email: '',
+                name: '',
+                food: null,
+                checked: []
+            },
+            foods: [{ text: 'Select One', value: null }, 'Carrots', 'Beans', 'Tomatoes', 'Corn'],
+            showSucess: false,
+            showError: false,
+            file2: null
+        };
+    },
+
+
+    computed: {
+        slug: function slug() {
+            this.item.slug = this.sanitizeTitle(this.item.name);
+            return this.item.slug;
+        }
+    },
+    methods: {
+        onSubmit: function onSubmit(evt) {
+            var _this = this;
+
+            window.axios.post('/api/items/salvar', this.item).then(function (_ref) {
+                var data = _ref.data;
+
+                if (data.status == true) {
+                    _this.title = "Dados cadastrado com sucesso";
+                    _this.showSucess = true;
+                    _this.showError = false;
+                } else {
+                    _this.title = "Oppss Error ao salvar dados";
+                    _this.showSucess = false;
+                    _this.showError = true;
+                }
+            }).catch(function (err) {
+                _this.title = "Oppss Error ao alterar dados";
+                _this.showSucess = false;
+                _this.showError = true;
+            });
+        },
+
+        sanitizeTitle: function sanitizeTitle(title) {
+            var slug = "";
+            // Change to lower case
+            var titleLower = title.toLowerCase();
+            // Letter "e"
+            slug = titleLower.replace(/e|é|è|ẽ|ẻ|ẹ|ê|ế|ề|ễ|ể|ệ/gi, 'e');
+            // Letter "a"
+            slug = slug.replace(/a|á|à|ã|ả|ạ|ă|ắ|ằ|ẵ|ẳ|ặ|â|ấ|ầ|ẫ|ẩ|ậ/gi, 'a');
+            // Letter "o"
+            slug = slug.replace(/o|ó|ò|õ|ỏ|ọ|ô|ố|ồ|ỗ|ổ|ộ|ơ|ớ|ờ|ỡ|ở|ợ/gi, 'o');
+            // Letter "u"
+            slug = slug.replace(/u|ú|ù|ũ|ủ|ụ|ư|ứ|ừ|ữ|ử|ự/gi, 'u');
+            // Letter "d"
+            slug = slug.replace(/đ/gi, 'd');
+            // Trim the last whitespace
+            slug = slug.replace(/\s*$/g, '');
+            // Change whitespace to "-"
+            slug = slug.replace(/\s+/g, '-');
+            slug = slug.replace(/--/g, '-');
+
+            return slug;
+        },
+        onReset: function onReset(evt) {
+            var _this2 = this;
+
+            evt.preventDefault();
+            /* Reset our form values */
+            this.form.email = '';
+            this.form.name = '';
+            this.form.food = null;
+            this.form.checked = [];
+            /* Trick to reset/clear native browser form validation state */
+            this.show = false;
+            this.$nextTick(function () {
+                _this2.show = true;
+            });
+        },
+        hideModal: function hideModal() {
+            this.$refs.myModalRef.hide();
+        }
+    }
+});
+
+/***/ }),
+/* 258 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c(
+      "div",
+      { staticClass: "col-sm-12" },
+      [
+        _c("b-alert", { attrs: { show: _vm.showSucess, variant: "success" } }, [
+          _vm._v(_vm._s(_vm.title))
+        ]),
+        _vm._v(" "),
+        _c("b-alert", { attrs: { show: _vm.showError, variant: "danger" } }, [
+          _vm._v(_vm._s(_vm.title))
+        ]),
+        _vm._v(" "),
+        _c(
+          "form",
+          { on: { submit: _vm.onSubmit } },
+          [
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-6" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "form-group has-feedback",
+                    class: [_vm.errors.first("name") ? "has-error" : ""]
+                  },
+                  [
+                    _c("label", [_vm._v("Nome do Item")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.item.name,
+                          expression: "item.name"
+                        },
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required",
+                          expression: "'required'"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "text",
+                        name: "name",
+                        placeholder: "Digite nome do item"
+                      },
+                      domProps: { value: _vm.item.name },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.item, "name", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "help-block" }, [
+                      _c("strong", [_vm._v(_vm._s(_vm.errors.first("name")))])
+                    ])
+                  ]
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-6", attrs: { id: "slug" } }, [
+                _c("div", { staticClass: "form-group" }, [
+                  _c("label", [_vm._v("Slug")]),
+                  _vm._v(" "),
+                  _c("input", {
+                    directives: [
+                      {
+                        name: "model",
+                        rawName: "v-model",
+                        value: _vm.slug,
+                        expression: "slug"
+                      }
+                    ],
+                    staticClass: "form-control",
+                    attrs: {
+                      type: "text",
+                      placeholder: "Digite o slug",
+                      disabled: ""
+                    },
+                    domProps: { value: _vm.slug },
+                    on: {
+                      input: function($event) {
+                        if ($event.target.composing) {
+                          return
+                        }
+                        _vm.slug = $event.target.value
+                      }
+                    }
+                  })
+                ])
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-4" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "form-group has-feedback",
+                    class: [_vm.errors.first("valor_rifa") ? "has-error" : ""]
+                  },
+                  [
+                    _c("label", [_vm._v("Valor de rifa")]),
+                    _vm._v(" "),
+                    _c(
+                      "money",
+                      _vm._b(
+                        {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { name: "valor_rifa" },
+                          model: {
+                            value: _vm.item.valor_rifa,
+                            callback: function($$v) {
+                              _vm.$set(_vm.item, "valor_rifa", $$v)
+                            },
+                            expression: "item.valor_rifa"
+                          }
+                        },
+                        "money",
+                        _vm.money,
+                        false
+                      )
+                    ),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "help-block" }, [
+                      _c("strong", [
+                        _vm._v(_vm._s(_vm.errors.first("valor_rifa")))
+                      ])
+                    ])
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-4" }, [
+                _c(
+                  "div",
+                  { staticClass: "form-group has-feedback" },
+                  [
+                    _c("label", [_vm._v("Valor de venda")]),
+                    _vm._v(" "),
+                    _c(
+                      "money",
+                      _vm._b(
+                        {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { name: "valor_venda" },
+                          model: {
+                            value: _vm.item.valor_venda,
+                            callback: function($$v) {
+                              _vm.$set(_vm.item, "valor_venda", $$v)
+                            },
+                            expression: "item.valor_venda"
+                          }
+                        },
+                        "money",
+                        _vm.money,
+                        false
+                      )
+                    ),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "help-block" }, [
+                      _c("strong", [
+                        _vm._v(_vm._s(_vm.errors.first("valor_venda")))
+                      ])
+                    ])
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-2" }, [
+                _c(
+                  "div",
+                  { staticClass: "form-group has-feedback" },
+                  [
+                    _c("label", [_vm._v("Valor de rp")]),
+                    _vm._v(" "),
+                    _c(
+                      "money",
+                      _vm._b(
+                        {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { name: "valor_rp" },
+                          model: {
+                            value: _vm.item.valor_rp,
+                            callback: function($$v) {
+                              _vm.$set(_vm.item, "valor_rp", $$v)
+                            },
+                            expression: "item.valor_rp"
+                          }
+                        },
+                        "money",
+                        _vm.money,
+                        false
+                      )
+                    ),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "help-block" }, [
+                      _c("strong", [
+                        _vm._v(_vm._s(_vm.errors.first("valor_rp")))
+                      ])
+                    ])
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-2" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "form-group",
+                    class: [_vm.errors.first("number") ? "has-error" : ""]
+                  },
+                  [
+                    _c("label", [_vm._v("Numero de rifas")]),
+                    _vm._v(" "),
+                    _c("input", {
+                      directives: [
+                        {
+                          name: "model",
+                          rawName: "v-model",
+                          value: _vm.item.number,
+                          expression: "item.number"
+                        },
+                        {
+                          name: "validate",
+                          rawName: "v-validate",
+                          value: "required",
+                          expression: "'required'"
+                        }
+                      ],
+                      staticClass: "form-control",
+                      attrs: {
+                        type: "number",
+                        name: "number",
+                        placeholder: "Digite o slug"
+                      },
+                      domProps: { value: _vm.item.number },
+                      on: {
+                        input: function($event) {
+                          if ($event.target.composing) {
+                            return
+                          }
+                          _vm.$set(_vm.item, "number", $event.target.value)
+                        }
+                      }
+                    }),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "help-block" }, [
+                      _c("strong", [_vm._v(_vm._s(_vm.errors.first("number")))])
+                    ])
+                  ]
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-6" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "form-group",
+                    class: [_vm.errors.first("credito") ? "has-error" : ""]
+                  },
+                  [
+                    _c("label", [_vm._v("Valor de creditos")]),
+                    _vm._v(" "),
+                    _c(
+                      "money",
+                      _vm._b(
+                        {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { name: "credito" },
+                          model: {
+                            value: _vm.item.valor_credito,
+                            callback: function($$v) {
+                              _vm.$set(_vm.item, "valor_credito", $$v)
+                            },
+                            expression: "item.valor_credito"
+                          }
+                        },
+                        "money",
+                        _vm.money,
+                        false
+                      )
+                    ),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "help-block" }, [
+                      _c("strong", [
+                        _vm._v(_vm._s(_vm.errors.first("credito")))
+                      ])
+                    ])
+                  ],
+                  1
+                )
+              ]),
+              _vm._v(" "),
+              _c("div", { staticClass: "col-sm-6" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "form-group",
+                    class: [_vm.errors.first("essencia") ? "has-error" : ""]
+                  },
+                  [
+                    _c("label", [_vm._v("Valor de essencia")]),
+                    _vm._v(" "),
+                    _c(
+                      "money",
+                      _vm._b(
+                        {
+                          directives: [
+                            {
+                              name: "validate",
+                              rawName: "v-validate",
+                              value: "required",
+                              expression: "'required'"
+                            }
+                          ],
+                          staticClass: "form-control",
+                          attrs: { name: "essencia" },
+                          model: {
+                            value: _vm.item.valor_essencia,
+                            callback: function($$v) {
+                              _vm.$set(_vm.item, "valor_essencia", $$v)
+                            },
+                            expression: "item.valor_essencia"
+                          }
+                        },
+                        "money",
+                        _vm.money,
+                        false
+                      )
+                    ),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "help-block" }, [
+                      _c("strong", [
+                        _vm._v(_vm._s(_vm.errors.first("essencia")))
+                      ])
+                    ])
+                  ],
+                  1
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c(
+              "b-form-group",
+              { attrs: { id: "exampleGroup4" } },
+              [
+                _c(
+                  "b-form-checkbox",
+                  {
+                    model: {
+                      value: _vm.item.resgatavel,
+                      callback: function($$v) {
+                        _vm.$set(_vm.item, "resgatavel", $$v)
+                      },
+                      expression: "item.resgatavel"
+                    }
+                  },
+                  [_vm._v(" Resgatavel ")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-form-checkbox",
+                  {
+                    model: {
+                      value: _vm.item.ativo,
+                      callback: function($$v) {
+                        _vm.$set(_vm.item, "ativo", $$v)
+                      },
+                      expression: "item.ativo"
+                    }
+                  },
+                  [_vm._v(" Ativado ")]
+                )
+              ],
+              1
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c("br"),
+        _vm._v(" "),
+        _c(
+          "b-modal",
+          {
+            ref: "myModalRef",
+            attrs: { "hide-footer": "", title: "Using Component Methods" }
+          },
+          [
+            _c("div", { staticClass: "d-block text-center" }, [
+              _c("h3", [_vm._v(_vm._s(_vm.title))])
+            ]),
+            _vm._v(" "),
+            _c(
+              "b-btn",
+              {
+                staticClass: "mt-3",
+                attrs: { variant: "outline-danger", block: "" },
+                on: { click: _vm.hideModal }
+              },
+              [_vm._v("Fechar")]
+            )
+          ],
+          1
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary btn-sm",
+            on: { click: _vm.onSubmit }
+          },
+          [_vm._v("Cadastrar Item")]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-9925005e", module.exports)
+  }
+}
 
 /***/ })
 /******/ ]);

@@ -80,7 +80,7 @@
 
 
             <ul id="loja-inventario-sub">
-                @if ($compras)
+                @isset ($compras)
                     @foreach ($compras as $compra)
 
                 <li>
@@ -132,12 +132,12 @@
                         <div class="row">
 <div class="col-sm-6">
     <button class="btn btn-lg btn-laranja">
-        <img src="{{asset('assets/imagem/moeda.png')}}"> Credito
-        {{$compra->items->valor_credito}}</button>
+        <img src="{{asset('assets/imagem/moeda.png')}}" style="float:left;"><?php echo number_format($compra->items->valor_credito, 2, ',', '.')?> <br/>  Credito
+        </button>
 </div>
 <div class="col-sm-6">
     <button class="btn btn-lg btn-amarelo">
-        <img src="{{asset('assets/imagem/moeda-essencia.png')}}" width="33" height="33">{{$compra->items->valor_credito}}
+        <img src="{{asset('assets/imagem/moeda-essencia.png')}}" width="33" height="33" style="float:left;"><?php echo number_format($compra->items->valor_essencia, 2, ',', '.')?> <br/>
         ESSÊNCIAS </button>
 </div>
                         </div>
@@ -146,7 +146,7 @@
 
                 </li>
                     @endforeach
-                @endif
+                @endisset
 
 
             </ul>

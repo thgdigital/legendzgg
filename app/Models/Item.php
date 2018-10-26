@@ -9,7 +9,7 @@ class Item extends Model
 {
     //
     protected $fillable = [
-        "name","imagem", "num_rifias", "valor_rifa", "valor_venda", "valor_rp", "resgatavel", "status", "tipo_items_id"
+        "name","imagem", "num_rifias", "valor_rifa", "valor_venda", "valor_rp",  "valor_credito", "valor_essencia","resgatavel", "status", "tipo_items_id"
     ];
 
     public function rifas(){

@@ -24,6 +24,12 @@ Route::group(['as'=> 'rifa.' ,'prefix'=> 'rifas' ], function() {
 
 });
 
+
+Route::group(['as'=> 'items.' ,'prefix'=> 'items' ], function() {
+    Route::post('salvar', ['as'=> 'salvar', 'uses'=> 'ItemsController@salvarItems']);
+
+});
+
 Route::group(['as'=> 'transacao.' ,'prefix'=> 'transacao' ], function() {
     Route::get('', ['as'=> 'fidAll', 'uses'=> 'TransacaoController@fidAll']);
     Route::post('salve-credito', ['as'=> 'salveCredit', 'uses'=> 'TransacaoController@salveCredit']);

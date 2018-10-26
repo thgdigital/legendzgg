@@ -1,6 +1,5 @@
 <template>
     <div class="row">
-{{item}}
             <div class="col-sm-12">
                 <b-alert :show="showSucess" variant="success">{{title}}</b-alert>
                 <b-alert :show="showError" variant="danger">{{title}}</b-alert>
@@ -90,7 +89,7 @@
                                 <span class="help-block">
                                         <strong>{{ errors.first('credito') }}</strong>
                                     </span>
-                            </div>
+                                </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group" v-bind:class="
@@ -107,6 +106,8 @@
                             </div>
                         </div>
                     </div>
+
+
                     <b-form-group id="exampleGroup4">
                         <b-form-checkbox v-model="item.resgatavel"> Resgatavel </b-form-checkbox>
                         <b-form-checkbox v-model="item.ativo"> Ativado </b-form-checkbox>
@@ -122,7 +123,7 @@
                     </div>
                     <b-btn class="mt-3" variant="outline-danger" block @click="hideModal">Fechar</b-btn>
                 </b-modal>
-                <button class="btn btn-primary btn-sm"  v-on:click="onSubmit">Atualizar dados</button>
+                <button class="btn btn-primary btn-sm"  v-on:click="onSubmit">Cadastrar Item</button>
             </div>
 
         </div>
@@ -131,28 +132,8 @@
 <script>
     var baseUrl = $('meta[name=base-url]').attr("content");
 
-    function Items({id, name, date_inicio,date_fim, created_at, updated_at, imagem, status, num_rifias, slug, valor_rifa,valor_venda ,valor_rp, valor_credito,valor_essencia, resgatavel}) {
-        this.id = id;
-        this.created_at = created_at;
-        this.date_inicio = date_inicio;
-        this.date_fim = date_fim;
-        this.name = name;
-        this.updated_at = updated_at
-        this.imagem = baseUrl+"/assets/imagem/rifas/"+imagem
-        this.number= num_rifias
-        this.slug = slug
-        this.valor_rifa = valor_rifa.toFixed(2).replace('.', ',')
-        this.valor_venda = valor_venda.toFixed(2).replace('.', ',')
-        this.valor_rp = valor_rp.toFixed(2).replace('.', ',')
-        this.resgatavel = resgatavel == 1 ? true: false
-        this.status = status == 1 ? "Ativado": "Desativado"
-        this.ativo = status == 1 ? true: false
-        this.valor_credito = valor_credito
-        this.valor_essencia = valor_essencia
 
-    }
     export default {
-        props:['id'],
             data () {
             return {
                 title:'',
@@ -164,7 +145,10 @@
                     precision: 2,
                     masked: false
                 },
-                item:{},
+                item:{
+                    slug: "",
+                    name:""
+                },
                 baselUrl:baseUrl,
                 form: {
                     email: '',
@@ -181,19 +165,7 @@
                 file2: null
             }
         },
-        mounted() {
 
-
-            window.axios.get('/api/rifas/items/'+this.id).then(({ data }) => {
-
-
-            this.item = new Items(data)
-        }).catch((err) =>{
-                this.title = "Oppss Error ao buscar dados"
-        })
-
-
-        },
         computed: {
             slug: function() {
                 this.item.slug =this.sanitizeTitle(this.item.name);
@@ -203,14 +175,14 @@
         methods: {
             onSubmit (evt) {
 
-                window.axios.post('/api/rifas/salvar', this.item).then(({ data }) => {
+                window.axios.post('/api/items/salvar', this.item).then(({ data }) => {
                     if(data.status == true){
-                    this.title = "Dados Atualizado com sucesso"
+                    this.title = "Dados cadastrado com sucesso"
                     this.showSucess = true
                     this.showError = false
 
                     }else{
-                        this.title = "Oppss Error ao alterar dados"
+                        this.title = "Oppss Error ao salvar dados"
                         this.showSucess = false
                         this.showError = true
                 }
