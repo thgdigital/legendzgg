@@ -101,7 +101,7 @@
 
                         Croppa::url("/storage/rifas/$path", 166,150)?>" />
 
-                        <span class="desconto">-50%</span>
+                        {{--<span class="desconto">-50%</span>--}}
                         <div class="description-loja">
                             <span class="title-loja">{{$compra->items->name}}</span>
                             <span class="numeber-loja">{{$compra->items->valor_rp}}</span>

@@ -124,7 +124,7 @@
 
                         </ul>
                     </li>
-                    <li><a href="#"><i class="fa fa-circle-o"></i> Level One</a></li>
+                    <li class="{{setActive('admin/loja/loja-inventario')}}"><a href="{{url("admin/loja/loja-inventario")}}"><i class="fa fa-circle-o"></i> Loja inventario</a></li>
                 </ul>
             </li>
             <li class="treeview">

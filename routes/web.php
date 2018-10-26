@@ -49,12 +49,18 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function ($router
     Route::group(['as'=> 'loja.' ,'prefix'=> 'loja','middleware' => ['auth:admin'] ], function() {
         Route::get('', ['as'=> 'index', 'uses'=> 'LojaController@index']);
         Route::get('loja-compra', ['as'=> 'lojacompra', 'uses'=> 'LojaController@lojacompra']);
-        Route::get('loja-invantario', ['as'=> 'lojaInvatario', 'uses'=> 'LojaController@lojaInvatario']);
+        Route::get('loja-inventario', ['as'=> 'lojaInvatario', 'uses'=> 'LojaController@lojaInvatario']);
         Route::get('compra-ativar/{id}', ['as'=> 'compraAtivar', 'uses'=> 'LojaController@compraAtivar']);
+        Route::get('inventario-ativar/{id}', ['as'=> 'inventarioAtivar', 'uses'=> 'LojaController@inventarioAtivar']);
         Route::get('compra-desativar/{id}', ['as'=> 'compraDesativar', 'uses'=> 'LojaController@compraDesativar']);
+        Route::get('inventario-desativar/{id}', ['as'=> 'inventarioDesativar', 'uses'=> 'LojaController@inventarioDesativar']);
+        Route::get('compra-editar/{id}', ['as'=> 'compraEditar', 'uses'=> 'LojaController@compraEditar']);
+        Route::get('inventario-editar/{id}', ['as'=> 'inventarioEditar', 'uses'=> 'LojaController@inventarioEditar']);
         Route::get('compra-editar/{id}', ['as'=> 'compraEditar', 'uses'=> 'LojaController@compraEditar']);
         Route::post('editar-compra', ['as'=> 'editarCompra', 'uses'=> 'LojaController@editarCompra']);
+        Route::post('editar-inventario', ['as'=> 'editarInventario', 'uses'=> 'LojaController@editarInventario']);
         Route::post('salvar-compra', ['as'=> 'salvarCompra', 'uses'=> 'LojaController@salvarCompra']);
+        Route::post('salvar-inventario', ['as'=> 'salvarInventario', 'uses'=> 'LojaController@salvarInventario']);
         Route::get('slider-compra', ['as'=> 'sliderCompra', 'uses'=> 'LojaController@sliderCompra']);
         Route::get('slider-compra-create', ['as'=> 'formSliderCompra', 'uses'=> 'LojaController@formSliderCompra']);
         Route::get('slider-compra-delete/{id}', ['as'=> 'deleteSliderCompra', 'uses'=> 'LojaController@deleteSliderCompra']);
@@ -121,8 +127,10 @@ Route::group(['middleware' => ['web']], function ($router) {
 Route::group(['as'=> 'loja.' ,'prefix'=> 'loja', 'middleware' => ['auth:jogador'] ], function() {
     Route::get('', ['as'=> 'index', 'uses'=> 'LojaController@index']);
     Route::get('loja-compra', ['as'=> 'webLojaCompra', 'uses'=> 'LojaController@webLojaCompra']);
+    Route::get('loja-inventario', ['as'=> 'webLojaInventario', 'uses'=> 'LojaController@webLojaInventario']);
     Route::get('loja-compra/credito/{id}', ['as'=> 'compraCredito', 'uses'=> 'LojaController@compraCredito']);
     Route::get('loja-compra/essencia/{id}', ['as'=> 'compraEssencia', 'uses'=> 'LojaController@compraEssencia']);
+    Route::get('loja-compra/resgate/{id}', ['as'=> 'compraResgatavel', 'uses'=> 'LojaController@compraResgatavel']);
 });
 
 Route::group(['as'=> 'suporte.' ,'prefix'=> 'suporte', 'middleware' => ['auth:jogador'] ], function() {

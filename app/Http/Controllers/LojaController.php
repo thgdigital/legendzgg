@@ -30,7 +30,28 @@ class LojaController extends Controller
 
     public function lojaInvatario()
     {
+        $whre = ['tipo' => 2];
 
+        $compras = Loja::where($whre)->with('items')->get();
+
+        $where = ['status' => 1];
+        $item = Item::where($where)->get();
+
+
+        return view('pages.admin.listLojaInventario')->with(['compras' => $compras, 'items' => $item]);
+    }
+
+
+    public function inventarioAtivar($id)
+    {
+        $loja = Loja::find($id);
+        $loja->status = 1;
+        $saved = $loja->save();
+        if ($saved) {
+            return redirect('admin/loja/loja-inventario')->with('success', 'Dados atualizado com sucesso');
+
+        }
+        return redirect('admin/loja/loja-inventario')->with('error', 'Erro ao  atualizado com sucesso');
     }
 
     public function compraAtivar($id)
@@ -43,6 +64,21 @@ class LojaController extends Controller
 
         }
         return redirect('admin/loja/loja-compra')->with('error', 'Erro ao  atualizado com sucesso');
+    }
+
+    public function inventarioDesativar($id)
+    {
+        $loja = Loja::find($id);
+
+        $loja->status = 0;
+        $saved = $loja->save();
+        if ($saved) {
+            return redirect('admin/loja/loja-inventario')->with('success', 'Dados atualizado com sucesso');
+
+        }
+        return redirect('admin/loja/loja-inventario')->with('error', 'Erro ao atualizado com sucesso');
+
+
     }
 
     public function compraDesativar($id)
@@ -77,6 +113,37 @@ class LojaController extends Controller
 
     }
 
+    public function editarInventario(Request $request)
+    {
+        $idLoja = $request->input('lojaId');
+        $itemID = $request->input('item');
+
+        $where = ['id' => $idLoja];
+        $loja = Loja::where($where)->first();
+        $loja->item_id = $itemID;
+        $saved = $loja->save();
+
+        if ($saved) {
+            return redirect('admin/loja/loja-inventario')->with('success', 'Dados atualizado com sucesso');
+        }
+        return redirect('admin/loja/loja-inventario')->with('error', 'Erro ao atualizado com sucesso');
+
+    }
+    public function inventarioEditar($id)
+    {
+        $whre = ['id' => $id];
+
+        $compras = Loja::where($whre)->with('items')->first();
+
+        $where = ['status' => 1];
+        $item = Item::where($where)->get();
+
+
+        return view('pages.admin.editarLojaInventario')->with(['items' => $item, 'loja' => $compras]);
+
+
+    }
+
     public function compraEditar($id)
     {
         $whre = ['id' => $id];
@@ -105,6 +172,23 @@ class LojaController extends Controller
 
         }
         return redirect('admin/loja/loja-compra')->with('error', 'Erro ao salvar dados');
+
+
+    }
+
+    public function salvarInventario(Request $request)
+    {
+        $itemID = $request->input('item');
+
+        $data = ['status' => 1, 'item_id' => $itemID, 'tipo' => 2];
+
+        $saved = $this->repository->create($data);
+
+        if ($saved) {
+            return redirect('admin/loja/loja-inventario')->with('success', 'Dados salvo com sucesso');
+
+        }
+        return redirect('admin/loja/loja-inventario')->with('error', 'Erro ao salvar dados');
 
 
     }
@@ -244,6 +328,31 @@ class LojaController extends Controller
 
     }
 
+    public function compraResgatavel($id)
+    {
+        if (auth()->guard('jogador')->user()) {
+
+            $user = auth()->guard('jogador')->user();
+            $loja = Loja::find($id);
+
+            if ($loja->items->status == 1 && $loja->items->resgatavel == 1) {
+                $saved = $user->loja()->attach($loja->id, [
+                    "valor_credito" => 0,
+                    "valor_resgate" => 1,
+                    "valor_essencia" => 0,
+                ]);
+
+
+                return redirect('loja/loja-inventario')->with(["success" => "Compra realizada com sucesso"]);
+            } else {
+                return redirect('loja/loja-inventario')->with(["error" => "Error ao resgatar a compra"]);
+            }
+        } else {
+            return redirect('loja/loja-inventario')->with(["error" => "Este item não esta ativo"]);
+        }
+        return redirect('loja/loja-inventario')->with(["error" => "Você não esta logado"]);
+    }
+
 
     public function lojacompra()
     {
@@ -259,5 +368,16 @@ class LojaController extends Controller
         return view('pages.admin.listLojaCompra')->with(['compras' => $compras, 'items' => $item]);
     }
 
+
+    public
+    function webLojaInventario()
+    {
+
+        $whre = ['tipo' => 2, 'status' => 1];
+        $compras = Loja::where($whre)->with(['items' => function ($query) {
+            $query->where('status', 1);
+        }])->orderBy('id', 'asc')->get();
+        return view('pages.loja-invantario')->with(['compras' => $compras]);
+    }
 }
 

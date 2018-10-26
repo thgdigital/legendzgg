@@ -19,4 +19,12 @@ $(function () {
 
         event.preventDefault;
     });
+
+    $(".compras-resgate").click(function (event) {
+        var creditoID = $(this).attr("compra-resgate");
+        window.location.href = baseUrl+"/loja/loja-compra/resgate/"+creditoID
+
+        event.preventDefault;
+    });
+
 })
