@@ -22,6 +22,13 @@
                 </div>
             @endif
 
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
+
+
             @if (session('status'))
                 <div class="alert alert-warning">
                     {{ session('status') }}
@@ -131,12 +138,12 @@
                         <div class="footer-modal">
                         <div class="row">
 <div class="col-sm-6">
-    <button class="btn btn-lg btn-laranja">
+    <button class="btn btn-lg btn-laranja compras-loja" compra-id="{{$compra->id}}">
         <img src="{{asset('assets/imagem/moeda.png')}}" style="float:left;"><?php echo number_format($compra->items->valor_credito, 2, ',', '.')?> <br/>  Credito
         </button>
 </div>
 <div class="col-sm-6">
-    <button class="btn btn-lg btn-amarelo">
+    <button class="btn btn-lg btn-amarelo compras-essencia"  compra-essencia="{{$compra->id}}">
         <img src="{{asset('assets/imagem/moeda-essencia.png')}}" width="33" height="33" style="float:left;"><?php echo number_format($compra->items->valor_essencia, 2, ',', '.')?> <br/>
         ESSÊNCIAS </button>
 </div>
@@ -156,5 +163,5 @@
 
 @stop
 @push('scripts')
-
+<script src="{{ asset('assets/js/loja_compra.js') }}"></script>
 @endpush

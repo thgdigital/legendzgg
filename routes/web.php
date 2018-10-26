@@ -121,7 +121,8 @@ Route::group(['middleware' => ['web']], function ($router) {
 Route::group(['as'=> 'loja.' ,'prefix'=> 'loja', 'middleware' => ['auth:jogador'] ], function() {
     Route::get('', ['as'=> 'index', 'uses'=> 'LojaController@index']);
     Route::get('loja-compra', ['as'=> 'webLojaCompra', 'uses'=> 'LojaController@webLojaCompra']);
-
+    Route::get('loja-compra/credito/{id}', ['as'=> 'compraCredito', 'uses'=> 'LojaController@compraCredito']);
+    Route::get('loja-compra/essencia/{id}', ['as'=> 'compraEssencia', 'uses'=> 'LojaController@compraEssencia']);
 });
 
 Route::group(['as'=> 'suporte.' ,'prefix'=> 'suporte', 'middleware' => ['auth:jogador'] ], function() {
