@@ -11,6 +11,7 @@ $router->get('login', [
     'uses' => 'AdminController@login',
     'as' => 'admin.login',
 ]);
+
 $router->get('dashboard', [
     'uses' => 'AdminController@index',
     'as' => 'index',

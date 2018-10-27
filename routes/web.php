@@ -19,6 +19,7 @@ Route::get('/cadastro', function () {
     return view('pages.cadastro');
 });
 Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function ($router) {
+    Route::get('', ['uses' => 'Auth\AdminController@index',  'as' => 'admin.index']);
 
     Route::group(['as'=> 'rifa.' ,'prefix'=> 'rifas','middleware' => ['auth:admin'] ], function() {
         Route::get('{name}', ['as'=> 'categoria', 'uses'=> 'RifaController@findCat']);
@@ -91,6 +92,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function ($router
         Route::get('', ['as'=> 'list', 'uses'=> 'Jogador\JogadorController@admin']);
         Route::get('edit/{id}', ['as'=> 'findUser', 'uses'=> 'Jogador\JogadorController@findUser']);
         Route::post('salvar', ['as'=> 'salvar', 'uses'=> 'Jogador\JogadorController@salverUser']);
+        Route::post('credit', ['as'=> 'credit', 'uses'=> 'Jogador\JogadorController@credit']);
         Route::get('transacao/{id}', ['as'=> 'transacao', 'uses'=> 'Jogador\JogadorController@listOrder']);
 
 

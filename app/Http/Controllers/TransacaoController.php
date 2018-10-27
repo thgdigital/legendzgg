@@ -65,14 +65,12 @@ class TransacaoController extends Controller
     }
     public function salveCredit(Request $request){
 
-        $idJogogador = $request->input('idUser');
-
-
             $idJogogador = $request->input('idUser');
             $dados = $this->repositoryCredit->create([
-               "user_id" => $request->input('admin'),
+               "user_id" => $idJogogador ,
                "valor" => $request->input("valor"),
                "transacao_id" => $request->input("id"),
+                "admin_id" => $request->input('admin')
             ]);
 
         if($dados){

@@ -62,6 +62,11 @@ class Jogador extends Authenticatable
         $this->notify(new JogadorResetPasswordNotification($token));
     }
 
+    public function credit(){
+        return $this->hasOne('App\Models\Credit', 'user_id');
+    }
+
+
     public function loja(){
         return $this->belongsToMany('App\Models\Loja', 'jogador_loja', 'jogador_id', 'loja_id')->withPivot('valor_credito', 'valor_resgate', 'valor_essencia')->withTimestamps();
     }

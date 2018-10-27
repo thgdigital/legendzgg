@@ -12,7 +12,12 @@ class AdminController extends Controller
     //
 
     public function index(){
-        return view('pages.admin.dashboard');
+       if (auth()->guard('admin')){
+           return view('pages.admin.dashboard');
+       }else{
+           redirect('admin/login')->with(['error'=> "Você não esta logado"]);
+       }
+
     }
     public function rifas(){
         return view('pages.admin.rifas');

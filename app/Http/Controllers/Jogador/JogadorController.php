@@ -658,4 +658,22 @@ class JogadorController extends Controller
 
         return redirect("jogador/edit-cartao/$id")->with('error', 'Error ao atulizar dados');
     }
+
+    public  function credit(Request $request){
+
+        $userID =$request->input('idUser');
+
+        $saldo = Saldo::where(["jogador_id" => $userID])->first();
+
+        $saldo->saldo += $request->input("valor");
+
+       $saved =  $saldo->save();
+
+        if($saved){
+            return redirect('admin/user')->with('success', 'Credito inserido com sucesso');
+        }
+        return redirect('admin/user')->with('error', 'Error ao inserir credito');
+
+
+    }
 }

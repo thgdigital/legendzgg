@@ -8,7 +8,7 @@ class Credit extends Model
 {
     //
     protected $fillable = [
-        'valor', 'user_id','transacao_id'
+        'valor', 'user_id','transacao_id', 'admin_id'
     ];
 
 
