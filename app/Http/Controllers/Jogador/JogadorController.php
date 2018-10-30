@@ -165,6 +165,17 @@ class JogadorController extends Controller
     public function email(){
         return view('pages.email');
     }
+
+    public function delete($id){
+
+        $res = Jogador::where('id',$id)->delete();
+
+        if($res){
+            return redirect('admin/user')->with('success', 'Usuario apagado com sucesso');
+        }
+        return redirect('admin/user')->with('error', 'Error ao  apagar o usuario');
+
+    }
     public function edit()
     {
 

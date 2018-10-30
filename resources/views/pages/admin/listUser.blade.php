@@ -72,6 +72,7 @@
                     <td>
                         <a href="{{url("admin/user/edit/$user->id")}}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
                         <a href="{{url("admin/user/transacao/$user->id")}}" class="btn btn-success btn-xs"><i class="fa fa-money"></i></a>
+                        <a href="{{url("admin/user/delete/$user->id")}}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
                         <button type="button" data-toggle="modal" data-target="#exampleModal-<?php echo $user->id; ?>" class="btn btn-success btn-xs"><i class="fa fa-fw fa-dollar"></i></button>
 
 

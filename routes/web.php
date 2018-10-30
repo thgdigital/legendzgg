@@ -94,6 +94,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function ($router
         Route::post('salvar', ['as'=> 'salvar', 'uses'=> 'Jogador\JogadorController@salverUser']);
         Route::post('credit', ['as'=> 'credit', 'uses'=> 'Jogador\JogadorController@credit']);
         Route::get('transacao/{id}', ['as'=> 'transacao', 'uses'=> 'Jogador\JogadorController@listOrder']);
+        Route::get('delete/{id}', ['as'=> 'transacao', 'uses'=> 'Jogador\JogadorController@delete']);
 
 
     });
