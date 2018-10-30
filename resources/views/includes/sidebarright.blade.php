@@ -1,3 +1,4 @@
+<!--
 <div class="sidebar-right">
     <div class="box-hideen">
         <span class="text-chat">TOTAL ONLINE - 200</span>
@@ -51,3 +52,4 @@
 
 </div>
 </div>
+--->

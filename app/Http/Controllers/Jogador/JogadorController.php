@@ -87,6 +87,7 @@ class JogadorController extends Controller
             'password' => bcrypt($request->input('senha')),
             'username' => $request->input('nickName'),
             'nascimento' => date('Y-m-d', strtotime($date[2]."-".$date[1]."-".$date[0])),
+            'code' => bcrypt($request->input('nickName'))
         ]);
 
         if($request->hasFile('file') && $request->file('file')->isValid())
