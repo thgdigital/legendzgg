@@ -680,6 +680,7 @@ button.button-invetario img, a.button-credito img {
 	font-weight   : bold;
 	box-shadow    : -1px 0px 12px 0px #FFFFFF;
 	border        : 1px solid #FFFFFF;
+	color: #ffffff;
 }
 
 .valor-rifas > small {

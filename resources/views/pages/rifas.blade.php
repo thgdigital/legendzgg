@@ -57,8 +57,8 @@
 
                             </a>
                             <span class="title-img-rifas shadow-<?php echo $cor; ?>">  {{$item->name}}</span>
-                            <span class="btn valor-rifas">Valor: <small>$
-                                   <?php echo number_format($item->valor_rifa, 2, ',', '.')?></small></span>
+                            <a href="{{url("items/$item->slug")}}" class="btn valor-rifas">Valor: <small>$
+                                   <?php echo number_format($item->valor_rifa, 2, ',', '.')?></small></a>
                         </div>
                     </div>
                     @endisset

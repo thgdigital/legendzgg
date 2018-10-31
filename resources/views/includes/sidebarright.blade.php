@@ -1,5 +1,4 @@
-<!--
-<div class="sidebar-right">
+<div class="sidebar-right" style="display: none">
     <div class="box-hideen">
         <span class="text-chat">TOTAL ONLINE - 200</span>
         <span class="icon-chat"></span>
@@ -44,7 +43,7 @@
     </div>
 </div>
 </div>
-<div class="chat" style="bottom: -397px;">
+<div class="chat" style="bottom: -397px;display: none">
     <div class="chat-show-button">
         <div class="chat-icon"></div>
         <div class="title">Chat</div>
@@ -52,4 +51,3 @@
 
 </div>
 </div>
---->

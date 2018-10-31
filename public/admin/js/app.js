@@ -1254,50 +1254,6 @@ function clickHandlerFactory(_ref3) {
 
 /***/ }),
 /* 9 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* Form control contextual state class computation
- *
- * Returned class is either 'is-valid' or 'is-invalid' based on the 'state' prop
- * state can be one of five values:
- *  - true or 'valid' for is-valid
- *  - false or 'invalid' for is-invalid
- *  - null (or empty string) for no contextual state
- */
-
-/* harmony default export */ __webpack_exports__["a"] = ({
-  props: {
-    state: {
-      // true/'valid', false/'invalid', '',null
-      type: [Boolean, String],
-      default: null
-    }
-  },
-  computed: {
-    computedState: function computedState() {
-      var state = this.state;
-      if (state === true || state === 'valid') {
-        return true;
-      } else if (state === false || state === 'invalid') {
-        return false;
-      }
-      return null;
-    },
-    stateClass: function stateClass() {
-      var state = this.computedState;
-      if (state === true) {
-        return 'is-valid';
-      } else if (state === false) {
-        return 'is-invalid';
-      }
-      return null;
-    }
-  }
-});
-
-/***/ }),
-/* 10 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -1404,6 +1360,50 @@ module.exports = function normalizeComponent (
   }
 }
 
+
+/***/ }),
+/* 10 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* Form control contextual state class computation
+ *
+ * Returned class is either 'is-valid' or 'is-invalid' based on the 'state' prop
+ * state can be one of five values:
+ *  - true or 'valid' for is-valid
+ *  - false or 'invalid' for is-invalid
+ *  - null (or empty string) for no contextual state
+ */
+
+/* harmony default export */ __webpack_exports__["a"] = ({
+  props: {
+    state: {
+      // true/'valid', false/'invalid', '',null
+      type: [Boolean, String],
+      default: null
+    }
+  },
+  computed: {
+    computedState: function computedState() {
+      var state = this.state;
+      if (state === true || state === 'valid') {
+        return true;
+      } else if (state === false || state === 'invalid') {
+        return false;
+      }
+      return null;
+    },
+    stateClass: function stateClass() {
+      var state = this.computedState;
+      if (state === true) {
+        return 'is-valid';
+      } else if (state === false) {
+        return 'is-invalid';
+      }
+      return null;
+    }
+  }
+});
 
 /***/ }),
 /* 11 */
@@ -8284,7 +8284,7 @@ var props = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_form_radio_check__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_form__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mixins_form_size__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mixins_form_state__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mixins_form_state__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mixins_form_custom__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_array__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__utils_loose_equal__ = __webpack_require__(34);
@@ -8575,7 +8575,7 @@ var props = {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_id__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_form__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_form_state__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_form_state__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mixins_form_radio_check__ = __webpack_require__(63);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_loose_equal__ = __webpack_require__(34);
 
@@ -9845,7 +9845,7 @@ var OBSERVER_CONFIG = {
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(74);
-module.exports = __webpack_require__(248);
+module.exports = __webpack_require__(251);
 
 
 /***/ }),
@@ -9893,11 +9893,11 @@ Vue.component('list-rifas', __webpack_require__(224));
 Vue.component('list-items', __webpack_require__(227));
 Vue.component('list-transacoes', __webpack_require__(230));
 Vue.component('edit-items', __webpack_require__(233));
-Vue.component('cad-items', __webpack_require__(256));
-Vue.component('image-item', __webpack_require__(236));
-Vue.component('nova-rifa', __webpack_require__(239));
-Vue.component('imagem-admin', __webpack_require__(242));
-Vue.component('imagem-compra-loja', __webpack_require__(245));
+Vue.component('cad-items', __webpack_require__(236));
+Vue.component('image-item', __webpack_require__(239));
+Vue.component('nova-rifa', __webpack_require__(242));
+Vue.component('imagem-admin', __webpack_require__(245));
+Vue.component('imagem-compra-loja', __webpack_require__(248));
 var app = new Vue({
     el: '#app',
     data: {
@@ -59539,7 +59539,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1__utils_plugins__["c" /* vueUse */])(VuePlugin
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__utils_warn__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__utils_dom__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_id__ = __webpack_require__(5);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mixins_form_state__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mixins_form_state__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__layout_form_row__ = __webpack_require__(31);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__form_form_text__ = __webpack_require__(59);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__form_form_invalid_feedback__ = __webpack_require__(60);
@@ -59875,7 +59875,7 @@ Object(__WEBPACK_IMPORTED_MODULE_2__utils_plugins__["c" /* vueUse */])(VuePlugin
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_form__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_form_options__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mixins_form_size__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mixins_form_state__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mixins_form_state__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mixins_form_custom__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__form_checkbox__ = __webpack_require__(62);
 
@@ -60024,7 +60024,7 @@ Object(__WEBPACK_IMPORTED_MODULE_2__utils_plugins__["c" /* vueUse */])(VuePlugin
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_form_options__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_form__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mixins_form_size__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mixins_form_state__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mixins_form_state__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mixins_form_custom__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__form_radio__ = __webpack_require__(64);
 
@@ -60168,7 +60168,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1__utils_plugins__["c" /* vueUse */])(VuePlugin
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_id__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_form__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_form_size__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mixins_form_state__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mixins_form_state__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_array__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__form_input_css__ = __webpack_require__(156);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__form_input_css___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__form_input_css__);
@@ -60400,7 +60400,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1__utils_plugins__["c" /* vueUse */])(VuePlugin
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_id__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_form__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_form_size__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mixins_form_state__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mixins_form_state__ = __webpack_require__(10);
 
 
 
@@ -60580,7 +60580,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1__utils_plugins__["c" /* vueUse */])(VuePlugin
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__mixins_id__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_form__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_form_state__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_form_state__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mixins_form_custom__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_array__ = __webpack_require__(3);
 
@@ -60865,7 +60865,7 @@ Object(__WEBPACK_IMPORTED_MODULE_1__utils_plugins__["c" /* vueUse */])(VuePlugin
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__mixins_form_options__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__mixins_form__ = __webpack_require__(12);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__mixins_form_size__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mixins_form_state__ = __webpack_require__(9);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__mixins_form_state__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__mixins_form_custom__ = __webpack_require__(18);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__utils_array__ = __webpack_require__(3);
 
@@ -77568,7 +77568,7 @@ module.exports=function(r){var t={};function n(e){if(t[e])return t[e].exports;va
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(10)
+var normalizeComponent = __webpack_require__(9)
 /* script */
 var __vue_script__ = __webpack_require__(222)
 /* template */
@@ -77687,7 +77687,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(10)
+var normalizeComponent = __webpack_require__(9)
 /* script */
 var __vue_script__ = __webpack_require__(225)
 /* template */
@@ -77970,7 +77970,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(10)
+var normalizeComponent = __webpack_require__(9)
 /* script */
 var __vue_script__ = __webpack_require__(228)
 /* template */
@@ -78322,7 +78322,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(10)
+var normalizeComponent = __webpack_require__(9)
 /* script */
 var __vue_script__ = __webpack_require__(231)
 /* template */
@@ -78652,7 +78652,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(10)
+var normalizeComponent = __webpack_require__(9)
 /* script */
 var __vue_script__ = __webpack_require__(234)
 /* template */
@@ -79471,1650 +79471,11 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(10)
+var normalizeComponent = __webpack_require__(9)
 /* script */
 var __vue_script__ = __webpack_require__(237)
 /* template */
 var __vue_template__ = __webpack_require__(238)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/ImageItem.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3e9e0832", Component.options)
-  } else {
-    hotAPI.reload("data-v-3e9e0832", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 237 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var baseUrl = $('meta[name=base-url]').attr("content");
-
-function Items(_ref) {
-    var id = _ref.id,
-        name = _ref.name,
-        created_at = _ref.created_at,
-        updated_at = _ref.updated_at,
-        imagem = _ref.imagem,
-        status = _ref.status,
-        num_rifias = _ref.num_rifias;
-
-    this.id = id;
-    this.created_at = created_at;
-    this.name = name;
-    this.updated_at = updated_at;
-    this.imagem = baseUrl + "/assets/imagem/rifas/" + imagem;
-    this.number = num_rifias;
-    this.urlEdit = baseUrl + "/admin/rifas/items/" + this.id;
-    this.status = status == 1 ? "Ativado" : "Desativado";
-    this.class = status;
-}
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            files: [],
-            image: null,
-            baselUrl: baseUrl,
-            accept: 'image/png,image/jpeg,image/webp',
-            extensions: 'jpg,jpeg,png,webp',
-            minSize: 1024,
-            size: 1024 * 1024 * 10,
-            urlUpdate: null,
-            showSucess: false,
-            showError: false
-        };
-    },
-
-
-    computed: {},
-    props: ['item'],
-    mounted: function mounted() {
-
-        var data = new Items(JSON.parse(this.item));
-        this.image = data.imagem;
-        this.urlUpdate = this.baselUrl + "/api/rifas/items/update-image/" + data.id;
-    },
-
-    methods: {
-        remover: function remover() {
-            var file = this.files[0];
-            this.$refs.upload.remove(file);
-        },
-        inputFile: function inputFile(newFile, oldFile) {
-            if (newFile && oldFile && !newFile.active && oldFile.active) {
-                // Get response data
-                console.error('response', newFile.response);
-                if (newFile.xhr) {
-                    //  Get the response status code
-                    console.warn('status', newFile.xhr.status);
-                    if (newFile.xhr.status == 200) {
-                        this.showSucess = true;
-                        this.showError = false;
-                    } else {
-                        this.showSucess = false;
-                        this.showError = true;
-                    }
-                }
-            }
-        },
-        /**
-         * Pretreatment
-         * @param  Object|undefined   newFile   Read and write
-         * @param  Object|undefined   oldFile   Read only
-         * @param  Function           prevent   Prevent changing
-         * @return undefined
-         */
-        inputFilter: function inputFilter(newFile, oldFile, prevent) {
-            if (newFile && !oldFile) {
-                // Filter non-image file
-                if (!/\.(jpeg|jpe|jpg|png|webp)$/i.test(newFile.name)) {
-                    return prevent();
-                }
-            }
-
-            // Create a blob field
-            newFile.blob = '';
-            var URL = window.URL || window.webkitURL;
-            if (URL && URL.createObjectURL) {
-                newFile.blob = URL.createObjectURL(newFile.file);
-            }
-        }
-    }
-
-});
-
-/***/ }),
-/* 238 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c(
-      "div",
-      { staticClass: "col-sm-12" },
-      [
-        _c(
-          "ul",
-          _vm._l(_vm.files, function(file) {
-            return _c(
-              "li",
-              [
-                _vm._v(
-                  "\n                " +
-                    _vm._s(file.error) +
-                    "\n\n\n                "
-                ),
-                _c(
-                  "b-alert",
-                  { attrs: { show: _vm.showSucess, variant: "success" } },
-                  [_vm._v("Imagem alterada com sucesso")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-alert",
-                  { attrs: { show: _vm.showError, variant: "danger" } },
-                  [_vm._v("Error ao  alterada imagem")]
-                ),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                file.blob
-                  ? _c("b-img", {
-                      attrs: {
-                        src: file.blob,
-                        width: "600",
-                        fluid: "",
-                        alt: "Responsive image"
-                      }
-                    })
-                  : _vm._e(),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                file.active || file.progress !== "0.00"
-                  ? _c("div", { staticClass: "progress" }, [
-                      _c(
-                        "div",
-                        {
-                          class: {
-                            "progress-bar": true,
-                            "progress-bar-striped": true,
-                            "bg-danger": file.error,
-                            "progress-bar-animated": file.active
-                          },
-                          style: { width: file.progress + "%" },
-                          attrs: { role: "progressbar" }
-                        },
-                        [_vm._v(_vm._s(file.progress) + "%")]
-                      )
-                    ])
-                  : _vm._e()
-              ],
-              1
-            )
-          })
-        ),
-        _vm._v(" "),
-        _c(
-          "file-upload",
-          {
-            ref: "upload",
-            staticClass: "btn btn-primary",
-            attrs: {
-              "post-action": _vm.urlUpdate,
-              extensions: _vm.extensions,
-              size: _vm.size || 0,
-              accept: _vm.accept
-            },
-            on: {
-              "input-file": _vm.inputFile,
-              "input-filter": _vm.inputFilter
-            },
-            model: {
-              value: _vm.files,
-              callback: function($$v) {
-                _vm.files = $$v
-              },
-              expression: "files"
-            }
-          },
-          [
-            _c("i", { staticClass: "fa fa-plus" }),
-            _vm._v("\n            Selecione um imagem\n        ")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: !_vm.$refs.upload || !_vm.$refs.upload.active,
-                expression: "!$refs.upload || !$refs.upload.active"
-              }
-            ],
-            staticClass: "btn btn-success",
-            attrs: { type: "button" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                _vm.$refs.upload.active = true
-              }
-            }
-          },
-          [
-            _c("i", {
-              staticClass: "fa fa-arrow-up",
-              attrs: { "aria-hidden": "true" }
-            }),
-            _vm._v(" Iniciar upload")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.$refs.upload && _vm.$refs.upload.active,
-                expression: "$refs.upload && $refs.upload.active"
-              }
-            ],
-            staticClass: "btn btn-danger",
-            attrs: { type: "button" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                _vm.$refs.upload.active = false
-              }
-            }
-          },
-          [_vm._v("Stop upload")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-danger",
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                _vm.remover()
-              }
-            }
-          },
-          [_vm._v("Remove")]
-        )
-      ],
-      1
-    )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-3e9e0832", module.exports)
-  }
-}
-
-/***/ }),
-/* 239 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(10)
-/* script */
-var __vue_script__ = __webpack_require__(240)
-/* template */
-var __vue_template__ = __webpack_require__(241)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/NovaRifa.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-3ae721b5", Component.options)
-  } else {
-    hotAPI.reload("data-v-3ae721b5", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 240 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-var _props$mounted$data$m;
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
-
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-/* harmony default export */ __webpack_exports__["default"] = (_props$mounted$data$m = {
-    props: ['id'],
-    mounted: function mounted() {
-        this.item.idCat = this.id;
-    },
-    data: function data() {
-        return {
-            messagem: null,
-            showSucess: false,
-            showError: false,
-            dismissCountDown: 0,
-            item: {
-                name: "",
-                slug: null,
-                date_fim: null,
-                date_inicio: null
-
-            }
-        };
-    }
-}, _defineProperty(_props$mounted$data$m, 'mounted', function mounted() {
-    this.item.idCat = this.id;
-}), _defineProperty(_props$mounted$data$m, 'computed', {
-    slug: function slug() {
-        this.item.slug = this.sanitizeTitle(this.item.name);
-        return this.item.slug;
-    }
-}), _defineProperty(_props$mounted$data$m, 'methods', {
-    countDownChanged: function countDownChanged(dismissCountDown) {
-        this.dismissCountDown = dismissCountDown;
-
-        if (this.dismissCountDown == 0) {
-            location.reload();
-        }
-    },
-    onSubmit: function onSubmit(evt) {
-        var _this = this;
-
-        window.axios.post('/api/rifas/salved', this.item).then(function (_ref) {
-            var data = _ref.data;
-
-            if (data.error == false) {
-                _this.showSucess = true;
-                _this.showError = false;
-                _this.messagem = "Dados salvos com sucesso";
-                _this.dismissCountDown = 5;
-
-                co;
-            } else {
-                _this.messagem = "Error ao salvar dados";
-                _this.showSucess = false;
-                _this.showError = true;
-            }
-        });
-    },
-
-    sanitizeTitle: function sanitizeTitle(title) {
-        var slug = "";
-        // Change to lower case
-        var titleLower = title.toLowerCase();
-        // Letter "e"
-        slug = titleLower.replace(/e|é|è|ẽ|ẻ|ẹ|ê|ế|ề|ễ|ể|ệ/gi, 'e');
-        // Letter "a"
-        slug = slug.replace(/a|á|à|ã|ả|ạ|ă|ắ|ằ|ẵ|ẳ|ặ|â|ấ|ầ|ẫ|ẩ|ậ/gi, 'a');
-        // Letter "o"
-        slug = slug.replace(/o|ó|ò|õ|ỏ|ọ|ô|ố|ồ|ỗ|ổ|ộ|ơ|ớ|ờ|ỡ|ở|ợ/gi, 'o');
-        // Letter "u"
-        slug = slug.replace(/u|ú|ù|ũ|ủ|ụ|ư|ứ|ừ|ữ|ử|ự/gi, 'u');
-        // Letter "d"
-        slug = slug.replace(/đ/gi, 'd');
-        // Trim the last whitespace
-        slug = slug.replace(/\s*$/g, '');
-        // Change whitespace to "-"
-        slug = slug.replace(/\s+/g, '-');
-        slug = slug.replace(/--/g, '-');
-
-        return slug;
-    }
-}), _props$mounted$data$m);
-
-/***/ }),
-/* 241 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c(
-    "form",
-    {
-      on: {
-        submit: function($event) {
-          $event.preventDefault()
-          return _vm.onSubmit($event)
-        }
-      }
-    },
-    [
-      _c(
-        "div",
-        [
-          _c(
-            "b-alert",
-            {
-              attrs: {
-                show: _vm.dismissCountDown,
-                fade: "",
-                dismissible: "",
-                variant: "success"
-              },
-              on: {
-                dismissed: function($event) {
-                  _vm.dismissCountDown = 0
-                },
-                "dismiss-count-down": _vm.countDownChanged
-              }
-            },
-            [_vm._v(_vm._s(_vm.messagem))]
-          ),
-          _vm._v(" "),
-          _c("b-alert", { attrs: { show: _vm.showError, variant: "danger" } }, [
-            _vm._v(_vm._s(_vm.messagem))
-          ])
-        ],
-        1
-      ),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-sm-6" }, [
-          _c(
-            "div",
-            {
-              staticClass: "form-group has-feedback",
-              class: [_vm.errors.first("name") ? "has-error" : ""]
-            },
-            [
-              _c("label", [_vm._v("Nome da Rifa")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.item.name,
-                    expression: "item.name"
-                  },
-                  {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: "required",
-                    expression: "'required'"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "text",
-                  required: "",
-                  name: "name",
-                  placeholder: "Digite nome do item"
-                },
-                domProps: { value: _vm.item.name },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.item, "name", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "help-block" }, [
-                _c("strong", [_vm._v(_vm._s(_vm.errors.first("name")))])
-              ])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-6", attrs: { id: "slug" } }, [
-          _c("div", { staticClass: "form-group" }, [
-            _c("label", [_vm._v("Slug")]),
-            _vm._v(" "),
-            _c("input", {
-              directives: [
-                {
-                  name: "model",
-                  rawName: "v-model",
-                  value: _vm.slug,
-                  expression: "slug"
-                }
-              ],
-              staticClass: "form-control",
-              attrs: {
-                type: "text",
-                placeholder: "Digite o slug",
-                disabled: ""
-              },
-              domProps: { value: _vm.slug },
-              on: {
-                input: function($event) {
-                  if ($event.target.composing) {
-                    return
-                  }
-                  _vm.slug = $event.target.value
-                }
-              }
-            })
-          ])
-        ])
-      ]),
-      _vm._v(" "),
-      _c("div", { staticClass: "row" }, [
-        _c("div", { staticClass: "col-sm-6" }, [
-          _c(
-            "div",
-            {
-              staticClass: "form-group",
-              class: [_vm.errors.first("date_inicio") ? "has-error" : ""]
-            },
-            [
-              _c("label", [_vm._v("Data de inicio")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.item.date_inicio,
-                    expression: "item.date_inicio"
-                  },
-                  {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: "date_format:DD/MM/YYYY",
-                    expression: "'date_format:DD/MM/YYYY'"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "date",
-                  name: "date_inicio",
-                  required: "",
-                  placeholder: "Digite da de inicio"
-                },
-                domProps: { value: _vm.item.date_inicio },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.item, "date_inicio", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "help-block" }, [
-                _c("strong", [_vm._v(_vm._s(_vm.errors.first("date_inicio")))])
-              ])
-            ]
-          )
-        ]),
-        _vm._v(" "),
-        _c("div", { staticClass: "col-sm-6" }, [
-          _c(
-            "div",
-            {
-              staticClass: "form-group",
-              class: [_vm.errors.first("date_fim") ? "has-error" : ""]
-            },
-            [
-              _c("label", [_vm._v("Date de término")]),
-              _vm._v(" "),
-              _c("input", {
-                directives: [
-                  {
-                    name: "model",
-                    rawName: "v-model",
-                    value: _vm.item.date_fim,
-                    expression: "item.date_fim"
-                  },
-                  {
-                    name: "validate",
-                    rawName: "v-validate",
-                    value: "date_format:DD/MM/YYYY",
-                    expression: "'date_format:DD/MM/YYYY'"
-                  }
-                ],
-                staticClass: "form-control",
-                attrs: {
-                  type: "date",
-                  name: "date_fim",
-                  required: "",
-                  placeholder: "Digite a data de término"
-                },
-                domProps: { value: _vm.item.date_fim },
-                on: {
-                  input: function($event) {
-                    if ($event.target.composing) {
-                      return
-                    }
-                    _vm.$set(_vm.item, "date_fim", $event.target.value)
-                  }
-                }
-              }),
-              _vm._v(" "),
-              _c("span", { staticClass: "help-block" }, [
-                _c("strong", [_vm._v(_vm._s(_vm.errors.first("date_fim")))])
-              ])
-            ]
-          )
-        ])
-      ]),
-      _vm._v(" "),
-      _c("input", {
-        staticClass: "btn btn-primary btn-sm",
-        attrs: { type: "submit", value: "Salvar dados" }
-      })
-    ]
-  )
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-3ae721b5", module.exports)
-  }
-}
-
-/***/ }),
-/* 242 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(10)
-/* script */
-var __vue_script__ = __webpack_require__(243)
-/* template */
-var __vue_template__ = __webpack_require__(244)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/ImageAdmin.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-8e0843aa", Component.options)
-  } else {
-    hotAPI.reload("data-v-8e0843aa", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 243 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var baseUrl = $('meta[name=base-url]').attr("content");
-
-function Items(_ref) {
-    var id = _ref.id,
-        name = _ref.name,
-        created_at = _ref.created_at,
-        updated_at = _ref.updated_at,
-        imagem = _ref.imagem,
-        status = _ref.status,
-        num_rifias = _ref.num_rifias;
-
-    this.id = id;
-    this.created_at = created_at;
-    this.name = name;
-    this.updated_at = updated_at;
-    this.imagem = baseUrl + "/assets/imagem/rifas/" + imagem;
-    this.number = num_rifias;
-    this.urlEdit = baseUrl + "/admin/rifas/items/" + this.id;
-    this.status = status == 1 ? "Ativado" : "Desativado";
-    this.class = status;
-}
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            files: [],
-            image: null,
-            baselUrl: baseUrl,
-            accept: 'image/png,image/jpeg,image/webp',
-            extensions: 'jpg,jpeg,png,webp',
-            minSize: 1024,
-            size: 1024 * 1024 * 10,
-            urlUpdate: null,
-            showSucess: false,
-            showError: false
-        };
-    },
-
-
-    computed: {},
-    props: ['user'],
-    mounted: function mounted() {
-
-        var data = new Items(JSON.parse(this.user));
-        this.image = data.avatar;
-
-        this.urlUpdate = this.baselUrl + "/api/user/update-imagem/" + data.id;
-        console.log(this.urlUpdate);
-    },
-
-    methods: {
-        remover: function remover() {
-            var file = this.files[0];
-            this.$refs.upload.remove(file);
-        },
-        inputFile: function inputFile(newFile, oldFile) {
-            if (newFile && oldFile && !newFile.active && oldFile.active) {
-                // Get response data
-
-                console.error('response', newFile.response);
-                if (newFile.xhr) {
-                    //  Get the response status code
-                    console.warn('status', newFile.xhr.status);
-                    if (newFile.xhr.status == 200) {
-                        this.showSucess = true;
-                        this.showError = false;
-                    } else {
-                        this.showSucess = false;
-                        this.showError = true;
-                    }
-                }
-            }
-        },
-        /**
-         * Pretreatment
-         * @param  Object|undefined   newFile   Read and write
-         * @param  Object|undefined   oldFile   Read only
-         * @param  Function           prevent   Prevent changing
-         * @return undefined
-         */
-        inputFilter: function inputFilter(newFile, oldFile, prevent) {
-            if (newFile && !oldFile) {
-                // Filter non-image file
-                if (!/\.(jpeg|jpe|jpg|png|webp)$/i.test(newFile.name)) {
-                    return prevent();
-                }
-            }
-
-            // Create a blob field
-            newFile.blob = '';
-            var URL = window.URL || window.webkitURL;
-            if (URL && URL.createObjectURL) {
-                newFile.blob = URL.createObjectURL(newFile.file);
-            }
-        }
-    }
-
-});
-
-/***/ }),
-/* 244 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c(
-      "div",
-      { staticClass: "col-sm-12" },
-      [
-        _c(
-          "ul",
-          _vm._l(_vm.files, function(file) {
-            return _c(
-              "li",
-              [
-                _vm._v(
-                  "\n                " +
-                    _vm._s(file.error) +
-                    "\n\n\n                "
-                ),
-                _c(
-                  "b-alert",
-                  { attrs: { show: _vm.showSucess, variant: "success" } },
-                  [_vm._v("Imagem alterada com sucesso")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-alert",
-                  { attrs: { show: _vm.showError, variant: "danger" } },
-                  [_vm._v("Error ao  alterada imagem")]
-                ),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                file.blob
-                  ? _c("b-img", {
-                      attrs: {
-                        src: file.blob,
-                        width: "600",
-                        fluid: "",
-                        alt: "Responsive image"
-                      }
-                    })
-                  : _vm._e(),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                file.active || file.progress !== "0.00"
-                  ? _c("div", { staticClass: "progress" }, [
-                      _c(
-                        "div",
-                        {
-                          class: {
-                            "progress-bar": true,
-                            "progress-bar-striped": true,
-                            "bg-danger": file.error,
-                            "progress-bar-animated": file.active
-                          },
-                          style: { width: file.progress + "%" },
-                          attrs: { role: "progressbar" }
-                        },
-                        [_vm._v(_vm._s(file.progress) + "%")]
-                      )
-                    ])
-                  : _vm._e()
-              ],
-              1
-            )
-          })
-        ),
-        _vm._v(" "),
-        _c(
-          "file-upload",
-          {
-            ref: "upload",
-            staticClass: "btn btn-primary",
-            attrs: {
-              "post-action": _vm.urlUpdate,
-              extensions: _vm.extensions,
-              size: _vm.size || 0,
-              accept: _vm.accept
-            },
-            on: {
-              "input-file": _vm.inputFile,
-              "input-filter": _vm.inputFilter
-            },
-            model: {
-              value: _vm.files,
-              callback: function($$v) {
-                _vm.files = $$v
-              },
-              expression: "files"
-            }
-          },
-          [
-            _c("i", { staticClass: "fa fa-plus" }),
-            _vm._v("\n            Selecione um imagem\n        ")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: !_vm.$refs.upload || !_vm.$refs.upload.active,
-                expression: "!$refs.upload || !$refs.upload.active"
-              }
-            ],
-            staticClass: "btn btn-success",
-            attrs: { type: "button" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                _vm.$refs.upload.active = true
-              }
-            }
-          },
-          [
-            _c("i", {
-              staticClass: "fa fa-arrow-up",
-              attrs: { "aria-hidden": "true" }
-            }),
-            _vm._v(" Iniciar upload")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.$refs.upload && _vm.$refs.upload.active,
-                expression: "$refs.upload && $refs.upload.active"
-              }
-            ],
-            staticClass: "btn btn-danger",
-            attrs: { type: "button" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                _vm.$refs.upload.active = false
-              }
-            }
-          },
-          [_vm._v("Stop upload")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-danger",
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                _vm.remover()
-              }
-            }
-          },
-          [_vm._v("Remove")]
-        )
-      ],
-      1
-    )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-8e0843aa", module.exports)
-  }
-}
-
-/***/ }),
-/* 245 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(10)
-/* script */
-var __vue_script__ = __webpack_require__(246)
-/* template */
-var __vue_template__ = __webpack_require__(247)
-/* template functional */
-var __vue_template_functional__ = false
-/* styles */
-var __vue_styles__ = null
-/* scopeId */
-var __vue_scopeId__ = null
-/* moduleIdentifier (server only) */
-var __vue_module_identifier__ = null
-var Component = normalizeComponent(
-  __vue_script__,
-  __vue_template__,
-  __vue_template_functional__,
-  __vue_styles__,
-  __vue_scopeId__,
-  __vue_module_identifier__
-)
-Component.options.__file = "resources/assets/js/components/ImageCompraLoja.vue"
-
-/* hot reload */
-if (false) {(function () {
-  var hotAPI = require("vue-hot-reload-api")
-  hotAPI.install(require("vue"), false)
-  if (!hotAPI.compatible) return
-  module.hot.accept()
-  if (!module.hot.data) {
-    hotAPI.createRecord("data-v-01b80c28", Component.options)
-  } else {
-    hotAPI.reload("data-v-01b80c28", Component.options)
-  }
-  module.hot.dispose(function (data) {
-    disposed = true
-  })
-})()}
-
-module.exports = Component.exports
-
-
-/***/ }),
-/* 246 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-var baseUrl = $('meta[name=base-url]').attr("content");
-
-function Items(_ref) {
-    var id = _ref.id,
-        name = _ref.name,
-        created_at = _ref.created_at,
-        updated_at = _ref.updated_at,
-        imagem = _ref.imagem,
-        status = _ref.status,
-        num_rifias = _ref.num_rifias;
-
-    this.id = id;
-    this.created_at = created_at;
-    this.name = name;
-    this.updated_at = updated_at;
-    this.imagem = baseUrl + "/assets/imagem/rifas/" + imagem;
-    this.number = num_rifias;
-    this.urlEdit = baseUrl + "/admin/rifas/items/" + this.id;
-    this.status = status == 1 ? "Ativado" : "Desativado";
-    this.class = status;
-}
-/* harmony default export */ __webpack_exports__["default"] = ({
-    data: function data() {
-        return {
-            files: [],
-            image: null,
-            baselUrl: baseUrl,
-            accept: 'image/png,image/jpeg,image/webp',
-            extensions: 'jpg,jpeg,png,webp',
-            minSize: 1024,
-            size: 1024 * 1024 * 10,
-            urlUpdate: null,
-            showSucess: false,
-            showError: false
-        };
-    },
-
-
-    computed: {},
-
-    mounted: function mounted() {
-        this.urlUpdate = this.baselUrl + "/api/loja/salvar-compra";
-        console.log(this.urlUpdate);
-    },
-
-    methods: {
-        remover: function remover() {
-            var file = this.files[0];
-            this.$refs.upload.remove(file);
-        },
-        inputFile: function inputFile(newFile, oldFile) {
-            if (newFile && oldFile && !newFile.active && oldFile.active) {
-                // Get response data
-
-                console.error('response', newFile.response);
-                if (newFile.xhr) {
-                    //  Get the response status code
-                    console.warn('status', newFile.xhr.status);
-                    if (newFile.xhr.status == 200) {
-                        this.showSucess = true;
-                        this.showError = false;
-                    } else {
-                        this.showSucess = false;
-                        this.showError = true;
-                    }
-                }
-            }
-        },
-        /**
-         * Pretreatment
-         * @param  Object|undefined   newFile   Read and write
-         * @param  Object|undefined   oldFile   Read only
-         * @param  Function           prevent   Prevent changing
-         * @return undefined
-         */
-        inputFilter: function inputFilter(newFile, oldFile, prevent) {
-            if (newFile && !oldFile) {
-                // Filter non-image file
-                if (!/\.(jpeg|jpe|jpg|png|webp)$/i.test(newFile.name)) {
-                    return prevent();
-                }
-            }
-
-            // Create a blob field
-            newFile.blob = '';
-            var URL = window.URL || window.webkitURL;
-            if (URL && URL.createObjectURL) {
-                newFile.blob = URL.createObjectURL(newFile.file);
-            }
-        }
-    }
-
-});
-
-/***/ }),
-/* 247 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "row" }, [
-    _c(
-      "div",
-      { staticClass: "col-sm-12" },
-      [
-        _c(
-          "ul",
-          _vm._l(_vm.files, function(file) {
-            return _c(
-              "li",
-              [
-                _vm._v(
-                  "\n                " +
-                    _vm._s(file.error) +
-                    "\n\n\n                "
-                ),
-                _c(
-                  "b-alert",
-                  { attrs: { show: _vm.showSucess, variant: "success" } },
-                  [_vm._v("Imagem alterada com sucesso")]
-                ),
-                _vm._v(" "),
-                _c(
-                  "b-alert",
-                  { attrs: { show: _vm.showError, variant: "danger" } },
-                  [_vm._v("Error ao  alterada imagem")]
-                ),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                file.blob
-                  ? _c("b-img", {
-                      attrs: {
-                        src: file.blob,
-                        width: "600",
-                        fluid: "",
-                        alt: "Responsive image"
-                      }
-                    })
-                  : _vm._e(),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                _c("br"),
-                _vm._v(" "),
-                file.active || file.progress !== "0.00"
-                  ? _c("div", { staticClass: "progress" }, [
-                      _c(
-                        "div",
-                        {
-                          class: {
-                            "progress-bar": true,
-                            "progress-bar-striped": true,
-                            "bg-danger": file.error,
-                            "progress-bar-animated": file.active
-                          },
-                          style: { width: file.progress + "%" },
-                          attrs: { role: "progressbar" }
-                        },
-                        [_vm._v(_vm._s(file.progress) + "%")]
-                      )
-                    ])
-                  : _vm._e()
-              ],
-              1
-            )
-          })
-        ),
-        _vm._v(" "),
-        _c(
-          "file-upload",
-          {
-            ref: "upload",
-            staticClass: "btn btn-primary",
-            attrs: {
-              "post-action": _vm.urlUpdate,
-              extensions: _vm.extensions,
-              size: _vm.size || 0,
-              accept: _vm.accept
-            },
-            on: {
-              "input-file": _vm.inputFile,
-              "input-filter": _vm.inputFilter
-            },
-            model: {
-              value: _vm.files,
-              callback: function($$v) {
-                _vm.files = $$v
-              },
-              expression: "files"
-            }
-          },
-          [
-            _c("i", { staticClass: "fa fa-plus" }),
-            _vm._v("\n            Selecione um imagem\n        ")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: !_vm.$refs.upload || !_vm.$refs.upload.active,
-                expression: "!$refs.upload || !$refs.upload.active"
-              }
-            ],
-            staticClass: "btn btn-success",
-            attrs: { type: "button" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                _vm.$refs.upload.active = true
-              }
-            }
-          },
-          [
-            _c("i", {
-              staticClass: "fa fa-arrow-up",
-              attrs: { "aria-hidden": "true" }
-            }),
-            _vm._v(" Iniciar upload")
-          ]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            directives: [
-              {
-                name: "show",
-                rawName: "v-show",
-                value: _vm.$refs.upload && _vm.$refs.upload.active,
-                expression: "$refs.upload && $refs.upload.active"
-              }
-            ],
-            staticClass: "btn btn-danger",
-            attrs: { type: "button" },
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                _vm.$refs.upload.active = false
-              }
-            }
-          },
-          [_vm._v("Stop upload")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-danger",
-            on: {
-              click: function($event) {
-                $event.preventDefault()
-                _vm.remover()
-              }
-            }
-          },
-          [_vm._v("Remove")]
-        )
-      ],
-      1
-    )
-  ])
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-01b80c28", module.exports)
-  }
-}
-
-/***/ }),
-/* 248 */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-/* 249 */,
-/* 250 */,
-/* 251 */,
-/* 252 */,
-/* 253 */,
-/* 254 */,
-/* 255 */,
-/* 256 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var disposed = false
-var normalizeComponent = __webpack_require__(10)
-/* script */
-var __vue_script__ = __webpack_require__(257)
-/* template */
-var __vue_template__ = __webpack_require__(258)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
@@ -81153,7 +79514,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 257 */
+/* 237 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -81396,7 +79757,7 @@ var baseUrl = $('meta[name=base-url]').attr("content");
 });
 
 /***/ }),
-/* 258 */
+/* 238 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var render = function() {
@@ -81878,6 +80239,1638 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-9925005e", module.exports)
   }
 }
+
+/***/ }),
+/* 239 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(9)
+/* script */
+var __vue_script__ = __webpack_require__(240)
+/* template */
+var __vue_template__ = __webpack_require__(241)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/ImageItem.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3e9e0832", Component.options)
+  } else {
+    hotAPI.reload("data-v-3e9e0832", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 240 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var baseUrl = $('meta[name=base-url]').attr("content");
+
+function Items(_ref) {
+    var id = _ref.id,
+        name = _ref.name,
+        created_at = _ref.created_at,
+        updated_at = _ref.updated_at,
+        imagem = _ref.imagem,
+        status = _ref.status,
+        num_rifias = _ref.num_rifias;
+
+    this.id = id;
+    this.created_at = created_at;
+    this.name = name;
+    this.updated_at = updated_at;
+    this.imagem = baseUrl + "/assets/imagem/rifas/" + imagem;
+    this.number = num_rifias;
+    this.urlEdit = baseUrl + "/admin/rifas/items/" + this.id;
+    this.status = status == 1 ? "Ativado" : "Desativado";
+    this.class = status;
+}
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            files: [],
+            image: null,
+            baselUrl: baseUrl,
+            accept: 'image/png,image/jpeg,image/webp',
+            extensions: 'jpg,jpeg,png,webp',
+            minSize: 1024,
+            size: 1024 * 1024 * 10,
+            urlUpdate: null,
+            showSucess: false,
+            showError: false
+        };
+    },
+
+
+    computed: {},
+    props: ['item'],
+    mounted: function mounted() {
+
+        var data = new Items(JSON.parse(this.item));
+        this.image = data.imagem;
+        this.urlUpdate = this.baselUrl + "/api/rifas/items/update-image/" + data.id;
+    },
+
+    methods: {
+        remover: function remover() {
+            var file = this.files[0];
+            this.$refs.upload.remove(file);
+        },
+        inputFile: function inputFile(newFile, oldFile) {
+            if (newFile && oldFile && !newFile.active && oldFile.active) {
+                // Get response data
+                console.error('response', newFile.response);
+                if (newFile.xhr) {
+                    //  Get the response status code
+                    console.warn('status', newFile.xhr.status);
+                    if (newFile.xhr.status == 200) {
+                        this.showSucess = true;
+                        this.showError = false;
+                    } else {
+                        this.showSucess = false;
+                        this.showError = true;
+                    }
+                }
+            }
+        },
+        /**
+         * Pretreatment
+         * @param  Object|undefined   newFile   Read and write
+         * @param  Object|undefined   oldFile   Read only
+         * @param  Function           prevent   Prevent changing
+         * @return undefined
+         */
+        inputFilter: function inputFilter(newFile, oldFile, prevent) {
+            if (newFile && !oldFile) {
+                // Filter non-image file
+                if (!/\.(jpeg|jpe|jpg|png|webp)$/i.test(newFile.name)) {
+                    return prevent();
+                }
+            }
+
+            // Create a blob field
+            newFile.blob = '';
+            var URL = window.URL || window.webkitURL;
+            if (URL && URL.createObjectURL) {
+                newFile.blob = URL.createObjectURL(newFile.file);
+            }
+        }
+    }
+
+});
+
+/***/ }),
+/* 241 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c(
+      "div",
+      { staticClass: "col-sm-12" },
+      [
+        _c(
+          "ul",
+          _vm._l(_vm.files, function(file) {
+            return _c(
+              "li",
+              [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(file.error) +
+                    "\n\n\n                "
+                ),
+                _c(
+                  "b-alert",
+                  { attrs: { show: _vm.showSucess, variant: "success" } },
+                  [_vm._v("Imagem alterada com sucesso")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-alert",
+                  { attrs: { show: _vm.showError, variant: "danger" } },
+                  [_vm._v("Error ao  alterada imagem")]
+                ),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                file.blob
+                  ? _c("b-img", {
+                      attrs: {
+                        src: file.blob,
+                        width: "600",
+                        fluid: "",
+                        alt: "Responsive image"
+                      }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                file.active || file.progress !== "0.00"
+                  ? _c("div", { staticClass: "progress" }, [
+                      _c(
+                        "div",
+                        {
+                          class: {
+                            "progress-bar": true,
+                            "progress-bar-striped": true,
+                            "bg-danger": file.error,
+                            "progress-bar-animated": file.active
+                          },
+                          style: { width: file.progress + "%" },
+                          attrs: { role: "progressbar" }
+                        },
+                        [_vm._v(_vm._s(file.progress) + "%")]
+                      )
+                    ])
+                  : _vm._e()
+              ],
+              1
+            )
+          })
+        ),
+        _vm._v(" "),
+        _c(
+          "file-upload",
+          {
+            ref: "upload",
+            staticClass: "btn btn-primary",
+            attrs: {
+              "post-action": _vm.urlUpdate,
+              extensions: _vm.extensions,
+              size: _vm.size || 0,
+              accept: _vm.accept
+            },
+            on: {
+              "input-file": _vm.inputFile,
+              "input-filter": _vm.inputFilter
+            },
+            model: {
+              value: _vm.files,
+              callback: function($$v) {
+                _vm.files = $$v
+              },
+              expression: "files"
+            }
+          },
+          [
+            _c("i", { staticClass: "fa fa-plus" }),
+            _vm._v("\n            Selecione um imagem\n        ")
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.$refs.upload || !_vm.$refs.upload.active,
+                expression: "!$refs.upload || !$refs.upload.active"
+              }
+            ],
+            staticClass: "btn btn-success",
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.$refs.upload.active = true
+              }
+            }
+          },
+          [
+            _c("i", {
+              staticClass: "fa fa-arrow-up",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" Iniciar upload")
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.$refs.upload && _vm.$refs.upload.active,
+                expression: "$refs.upload && $refs.upload.active"
+              }
+            ],
+            staticClass: "btn btn-danger",
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.$refs.upload.active = false
+              }
+            }
+          },
+          [_vm._v("Stop upload")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-danger",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.remover()
+              }
+            }
+          },
+          [_vm._v("Remove")]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3e9e0832", module.exports)
+  }
+}
+
+/***/ }),
+/* 242 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(9)
+/* script */
+var __vue_script__ = __webpack_require__(243)
+/* template */
+var __vue_template__ = __webpack_require__(244)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/NovaRifa.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-3ae721b5", Component.options)
+  } else {
+    hotAPI.reload("data-v-3ae721b5", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 243 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+var _props$mounted$data$m;
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = (_props$mounted$data$m = {
+    props: ['id'],
+    mounted: function mounted() {
+        this.item.idCat = this.id;
+    },
+    data: function data() {
+        return {
+            messagem: null,
+            showSucess: false,
+            showError: false,
+            dismissCountDown: 0,
+            item: {
+                name: "",
+                slug: null,
+                date_fim: null,
+                date_inicio: null
+
+            }
+        };
+    }
+}, _defineProperty(_props$mounted$data$m, 'mounted', function mounted() {
+    this.item.idCat = this.id;
+}), _defineProperty(_props$mounted$data$m, 'computed', {
+    slug: function slug() {
+        this.item.slug = this.sanitizeTitle(this.item.name);
+        return this.item.slug;
+    }
+}), _defineProperty(_props$mounted$data$m, 'methods', {
+    countDownChanged: function countDownChanged(dismissCountDown) {
+        this.dismissCountDown = dismissCountDown;
+
+        if (this.dismissCountDown == 0) {
+            location.reload();
+        }
+    },
+    onSubmit: function onSubmit(evt) {
+        var _this = this;
+
+        window.axios.post('/api/rifas/salved', this.item).then(function (_ref) {
+            var data = _ref.data;
+
+            if (data.error == false) {
+                _this.showSucess = true;
+                _this.showError = false;
+                _this.messagem = "Dados salvos com sucesso";
+                _this.dismissCountDown = 5;
+
+                co;
+            } else {
+                _this.messagem = "Error ao salvar dados";
+                _this.showSucess = false;
+                _this.showError = true;
+            }
+        });
+    },
+
+    sanitizeTitle: function sanitizeTitle(title) {
+        var slug = "";
+        // Change to lower case
+        var titleLower = title.toLowerCase();
+        // Letter "e"
+        slug = titleLower.replace(/e|é|è|ẽ|ẻ|ẹ|ê|ế|ề|ễ|ể|ệ/gi, 'e');
+        // Letter "a"
+        slug = slug.replace(/a|á|à|ã|ả|ạ|ă|ắ|ằ|ẵ|ẳ|ặ|â|ấ|ầ|ẫ|ẩ|ậ/gi, 'a');
+        // Letter "o"
+        slug = slug.replace(/o|ó|ò|õ|ỏ|ọ|ô|ố|ồ|ỗ|ổ|ộ|ơ|ớ|ờ|ỡ|ở|ợ/gi, 'o');
+        // Letter "u"
+        slug = slug.replace(/u|ú|ù|ũ|ủ|ụ|ư|ứ|ừ|ữ|ử|ự/gi, 'u');
+        // Letter "d"
+        slug = slug.replace(/đ/gi, 'd');
+        // Trim the last whitespace
+        slug = slug.replace(/\s*$/g, '');
+        // Change whitespace to "-"
+        slug = slug.replace(/\s+/g, '-');
+        slug = slug.replace(/--/g, '-');
+
+        return slug;
+    }
+}), _props$mounted$data$m);
+
+/***/ }),
+/* 244 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "form",
+    {
+      on: {
+        submit: function($event) {
+          $event.preventDefault()
+          return _vm.onSubmit($event)
+        }
+      }
+    },
+    [
+      _c(
+        "div",
+        [
+          _c(
+            "b-alert",
+            {
+              attrs: {
+                show: _vm.dismissCountDown,
+                fade: "",
+                dismissible: "",
+                variant: "success"
+              },
+              on: {
+                dismissed: function($event) {
+                  _vm.dismissCountDown = 0
+                },
+                "dismiss-count-down": _vm.countDownChanged
+              }
+            },
+            [_vm._v(_vm._s(_vm.messagem))]
+          ),
+          _vm._v(" "),
+          _c("b-alert", { attrs: { show: _vm.showError, variant: "danger" } }, [
+            _vm._v(_vm._s(_vm.messagem))
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-sm-6" }, [
+          _c(
+            "div",
+            {
+              staticClass: "form-group has-feedback",
+              class: [_vm.errors.first("name") ? "has-error" : ""]
+            },
+            [
+              _c("label", [_vm._v("Nome da Rifa")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.item.name,
+                    expression: "item.name"
+                  },
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: "required",
+                    expression: "'required'"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "text",
+                  required: "",
+                  name: "name",
+                  placeholder: "Digite nome do item"
+                },
+                domProps: { value: _vm.item.name },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.item, "name", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "help-block" }, [
+                _c("strong", [_vm._v(_vm._s(_vm.errors.first("name")))])
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-6", attrs: { id: "slug" } }, [
+          _c("div", { staticClass: "form-group" }, [
+            _c("label", [_vm._v("Slug")]),
+            _vm._v(" "),
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.slug,
+                  expression: "slug"
+                }
+              ],
+              staticClass: "form-control",
+              attrs: {
+                type: "text",
+                placeholder: "Digite o slug",
+                disabled: ""
+              },
+              domProps: { value: _vm.slug },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.slug = $event.target.value
+                }
+              }
+            })
+          ])
+        ])
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "row" }, [
+        _c("div", { staticClass: "col-sm-6" }, [
+          _c(
+            "div",
+            {
+              staticClass: "form-group",
+              class: [_vm.errors.first("date_inicio") ? "has-error" : ""]
+            },
+            [
+              _c("label", [_vm._v("Data de inicio")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.item.date_inicio,
+                    expression: "item.date_inicio"
+                  },
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: "date_format:DD/MM/YYYY",
+                    expression: "'date_format:DD/MM/YYYY'"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "date",
+                  name: "date_inicio",
+                  required: "",
+                  placeholder: "Digite da de inicio"
+                },
+                domProps: { value: _vm.item.date_inicio },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.item, "date_inicio", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "help-block" }, [
+                _c("strong", [_vm._v(_vm._s(_vm.errors.first("date_inicio")))])
+              ])
+            ]
+          )
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "col-sm-6" }, [
+          _c(
+            "div",
+            {
+              staticClass: "form-group",
+              class: [_vm.errors.first("date_fim") ? "has-error" : ""]
+            },
+            [
+              _c("label", [_vm._v("Date de término")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.item.date_fim,
+                    expression: "item.date_fim"
+                  },
+                  {
+                    name: "validate",
+                    rawName: "v-validate",
+                    value: "date_format:DD/MM/YYYY",
+                    expression: "'date_format:DD/MM/YYYY'"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: {
+                  type: "date",
+                  name: "date_fim",
+                  required: "",
+                  placeholder: "Digite a data de término"
+                },
+                domProps: { value: _vm.item.date_fim },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.item, "date_fim", $event.target.value)
+                  }
+                }
+              }),
+              _vm._v(" "),
+              _c("span", { staticClass: "help-block" }, [
+                _c("strong", [_vm._v(_vm._s(_vm.errors.first("date_fim")))])
+              ])
+            ]
+          )
+        ])
+      ]),
+      _vm._v(" "),
+      _c("input", {
+        staticClass: "btn btn-primary btn-sm",
+        attrs: { type: "submit", value: "Salvar dados" }
+      })
+    ]
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-3ae721b5", module.exports)
+  }
+}
+
+/***/ }),
+/* 245 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(9)
+/* script */
+var __vue_script__ = __webpack_require__(246)
+/* template */
+var __vue_template__ = __webpack_require__(247)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/ImageAdmin.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-8e0843aa", Component.options)
+  } else {
+    hotAPI.reload("data-v-8e0843aa", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 246 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var baseUrl = $('meta[name=base-url]').attr("content");
+
+function Items(_ref) {
+    var id = _ref.id,
+        name = _ref.name,
+        created_at = _ref.created_at,
+        updated_at = _ref.updated_at,
+        imagem = _ref.imagem,
+        status = _ref.status,
+        num_rifias = _ref.num_rifias;
+
+    this.id = id;
+    this.created_at = created_at;
+    this.name = name;
+    this.updated_at = updated_at;
+    this.imagem = baseUrl + "/assets/imagem/rifas/" + imagem;
+    this.number = num_rifias;
+    this.urlEdit = baseUrl + "/admin/rifas/items/" + this.id;
+    this.status = status == 1 ? "Ativado" : "Desativado";
+    this.class = status;
+}
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            files: [],
+            image: null,
+            baselUrl: baseUrl,
+            accept: 'image/png,image/jpeg,image/webp',
+            extensions: 'jpg,jpeg,png,webp',
+            minSize: 1024,
+            size: 1024 * 1024 * 10,
+            urlUpdate: null,
+            showSucess: false,
+            showError: false
+        };
+    },
+
+
+    computed: {},
+    props: ['user'],
+    mounted: function mounted() {
+
+        var data = new Items(JSON.parse(this.user));
+        this.image = data.avatar;
+
+        this.urlUpdate = this.baselUrl + "/api/user/update-imagem/" + data.id;
+        console.log(this.urlUpdate);
+    },
+
+    methods: {
+        remover: function remover() {
+            var file = this.files[0];
+            this.$refs.upload.remove(file);
+        },
+        inputFile: function inputFile(newFile, oldFile) {
+            if (newFile && oldFile && !newFile.active && oldFile.active) {
+                // Get response data
+
+                console.error('response', newFile.response);
+                if (newFile.xhr) {
+                    //  Get the response status code
+                    console.warn('status', newFile.xhr.status);
+                    if (newFile.xhr.status == 200) {
+                        this.showSucess = true;
+                        this.showError = false;
+                    } else {
+                        this.showSucess = false;
+                        this.showError = true;
+                    }
+                }
+            }
+        },
+        /**
+         * Pretreatment
+         * @param  Object|undefined   newFile   Read and write
+         * @param  Object|undefined   oldFile   Read only
+         * @param  Function           prevent   Prevent changing
+         * @return undefined
+         */
+        inputFilter: function inputFilter(newFile, oldFile, prevent) {
+            if (newFile && !oldFile) {
+                // Filter non-image file
+                if (!/\.(jpeg|jpe|jpg|png|webp)$/i.test(newFile.name)) {
+                    return prevent();
+                }
+            }
+
+            // Create a blob field
+            newFile.blob = '';
+            var URL = window.URL || window.webkitURL;
+            if (URL && URL.createObjectURL) {
+                newFile.blob = URL.createObjectURL(newFile.file);
+            }
+        }
+    }
+
+});
+
+/***/ }),
+/* 247 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c(
+      "div",
+      { staticClass: "col-sm-12" },
+      [
+        _c(
+          "ul",
+          _vm._l(_vm.files, function(file) {
+            return _c(
+              "li",
+              [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(file.error) +
+                    "\n\n\n                "
+                ),
+                _c(
+                  "b-alert",
+                  { attrs: { show: _vm.showSucess, variant: "success" } },
+                  [_vm._v("Imagem alterada com sucesso")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-alert",
+                  { attrs: { show: _vm.showError, variant: "danger" } },
+                  [_vm._v("Error ao  alterada imagem")]
+                ),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                file.blob
+                  ? _c("b-img", {
+                      attrs: {
+                        src: file.blob,
+                        width: "600",
+                        fluid: "",
+                        alt: "Responsive image"
+                      }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                file.active || file.progress !== "0.00"
+                  ? _c("div", { staticClass: "progress" }, [
+                      _c(
+                        "div",
+                        {
+                          class: {
+                            "progress-bar": true,
+                            "progress-bar-striped": true,
+                            "bg-danger": file.error,
+                            "progress-bar-animated": file.active
+                          },
+                          style: { width: file.progress + "%" },
+                          attrs: { role: "progressbar" }
+                        },
+                        [_vm._v(_vm._s(file.progress) + "%")]
+                      )
+                    ])
+                  : _vm._e()
+              ],
+              1
+            )
+          })
+        ),
+        _vm._v(" "),
+        _c(
+          "file-upload",
+          {
+            ref: "upload",
+            staticClass: "btn btn-primary",
+            attrs: {
+              "post-action": _vm.urlUpdate,
+              extensions: _vm.extensions,
+              size: _vm.size || 0,
+              accept: _vm.accept
+            },
+            on: {
+              "input-file": _vm.inputFile,
+              "input-filter": _vm.inputFilter
+            },
+            model: {
+              value: _vm.files,
+              callback: function($$v) {
+                _vm.files = $$v
+              },
+              expression: "files"
+            }
+          },
+          [
+            _c("i", { staticClass: "fa fa-plus" }),
+            _vm._v("\n            Selecione um imagem\n        ")
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.$refs.upload || !_vm.$refs.upload.active,
+                expression: "!$refs.upload || !$refs.upload.active"
+              }
+            ],
+            staticClass: "btn btn-success",
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.$refs.upload.active = true
+              }
+            }
+          },
+          [
+            _c("i", {
+              staticClass: "fa fa-arrow-up",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" Iniciar upload")
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.$refs.upload && _vm.$refs.upload.active,
+                expression: "$refs.upload && $refs.upload.active"
+              }
+            ],
+            staticClass: "btn btn-danger",
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.$refs.upload.active = false
+              }
+            }
+          },
+          [_vm._v("Stop upload")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-danger",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.remover()
+              }
+            }
+          },
+          [_vm._v("Remove")]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-8e0843aa", module.exports)
+  }
+}
+
+/***/ }),
+/* 248 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+var normalizeComponent = __webpack_require__(9)
+/* script */
+var __vue_script__ = __webpack_require__(249)
+/* template */
+var __vue_template__ = __webpack_require__(250)
+/* template functional */
+var __vue_template_functional__ = false
+/* styles */
+var __vue_styles__ = null
+/* scopeId */
+var __vue_scopeId__ = null
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_template_functional__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources/assets/js/components/ImageCompraLoja.vue"
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-01b80c28", Component.options)
+  } else {
+    hotAPI.reload("data-v-01b80c28", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 249 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+var baseUrl = $('meta[name=base-url]').attr("content");
+
+function Items(_ref) {
+    var id = _ref.id,
+        name = _ref.name,
+        created_at = _ref.created_at,
+        updated_at = _ref.updated_at,
+        imagem = _ref.imagem,
+        status = _ref.status,
+        num_rifias = _ref.num_rifias;
+
+    this.id = id;
+    this.created_at = created_at;
+    this.name = name;
+    this.updated_at = updated_at;
+    this.imagem = baseUrl + "/assets/imagem/rifas/" + imagem;
+    this.number = num_rifias;
+    this.urlEdit = baseUrl + "/admin/rifas/items/" + this.id;
+    this.status = status == 1 ? "Ativado" : "Desativado";
+    this.class = status;
+}
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            files: [],
+            image: null,
+            baselUrl: baseUrl,
+            accept: 'image/png,image/jpeg,image/webp',
+            extensions: 'jpg,jpeg,png,webp',
+            minSize: 1024,
+            size: 1024 * 1024 * 10,
+            urlUpdate: null,
+            showSucess: false,
+            showError: false
+        };
+    },
+
+
+    computed: {},
+
+    mounted: function mounted() {
+        this.urlUpdate = this.baselUrl + "/api/loja/salvar-compra";
+        console.log(this.urlUpdate);
+    },
+
+    methods: {
+        remover: function remover() {
+            var file = this.files[0];
+            this.$refs.upload.remove(file);
+        },
+        inputFile: function inputFile(newFile, oldFile) {
+            if (newFile && oldFile && !newFile.active && oldFile.active) {
+                // Get response data
+
+                console.error('response', newFile.response);
+                if (newFile.xhr) {
+                    //  Get the response status code
+                    console.warn('status', newFile.xhr.status);
+                    if (newFile.xhr.status == 200) {
+                        this.showSucess = true;
+                        this.showError = false;
+                    } else {
+                        this.showSucess = false;
+                        this.showError = true;
+                    }
+                }
+            }
+        },
+        /**
+         * Pretreatment
+         * @param  Object|undefined   newFile   Read and write
+         * @param  Object|undefined   oldFile   Read only
+         * @param  Function           prevent   Prevent changing
+         * @return undefined
+         */
+        inputFilter: function inputFilter(newFile, oldFile, prevent) {
+            if (newFile && !oldFile) {
+                // Filter non-image file
+                if (!/\.(jpeg|jpe|jpg|png|webp)$/i.test(newFile.name)) {
+                    return prevent();
+                }
+            }
+
+            // Create a blob field
+            newFile.blob = '';
+            var URL = window.URL || window.webkitURL;
+            if (URL && URL.createObjectURL) {
+                newFile.blob = URL.createObjectURL(newFile.file);
+            }
+        }
+    }
+
+});
+
+/***/ }),
+/* 250 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c("div", { staticClass: "row" }, [
+    _c(
+      "div",
+      { staticClass: "col-sm-12" },
+      [
+        _c(
+          "ul",
+          _vm._l(_vm.files, function(file) {
+            return _c(
+              "li",
+              [
+                _vm._v(
+                  "\n                " +
+                    _vm._s(file.error) +
+                    "\n\n\n                "
+                ),
+                _c(
+                  "b-alert",
+                  { attrs: { show: _vm.showSucess, variant: "success" } },
+                  [_vm._v("Imagem alterada com sucesso")]
+                ),
+                _vm._v(" "),
+                _c(
+                  "b-alert",
+                  { attrs: { show: _vm.showError, variant: "danger" } },
+                  [_vm._v("Error ao  alterada imagem")]
+                ),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                file.blob
+                  ? _c("b-img", {
+                      attrs: {
+                        src: file.blob,
+                        width: "600",
+                        fluid: "",
+                        alt: "Responsive image"
+                      }
+                    })
+                  : _vm._e(),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                _c("br"),
+                _vm._v(" "),
+                file.active || file.progress !== "0.00"
+                  ? _c("div", { staticClass: "progress" }, [
+                      _c(
+                        "div",
+                        {
+                          class: {
+                            "progress-bar": true,
+                            "progress-bar-striped": true,
+                            "bg-danger": file.error,
+                            "progress-bar-animated": file.active
+                          },
+                          style: { width: file.progress + "%" },
+                          attrs: { role: "progressbar" }
+                        },
+                        [_vm._v(_vm._s(file.progress) + "%")]
+                      )
+                    ])
+                  : _vm._e()
+              ],
+              1
+            )
+          })
+        ),
+        _vm._v(" "),
+        _c(
+          "file-upload",
+          {
+            ref: "upload",
+            staticClass: "btn btn-primary",
+            attrs: {
+              "post-action": _vm.urlUpdate,
+              extensions: _vm.extensions,
+              size: _vm.size || 0,
+              accept: _vm.accept
+            },
+            on: {
+              "input-file": _vm.inputFile,
+              "input-filter": _vm.inputFilter
+            },
+            model: {
+              value: _vm.files,
+              callback: function($$v) {
+                _vm.files = $$v
+              },
+              expression: "files"
+            }
+          },
+          [
+            _c("i", { staticClass: "fa fa-plus" }),
+            _vm._v("\n            Selecione um imagem\n        ")
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: !_vm.$refs.upload || !_vm.$refs.upload.active,
+                expression: "!$refs.upload || !$refs.upload.active"
+              }
+            ],
+            staticClass: "btn btn-success",
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.$refs.upload.active = true
+              }
+            }
+          },
+          [
+            _c("i", {
+              staticClass: "fa fa-arrow-up",
+              attrs: { "aria-hidden": "true" }
+            }),
+            _vm._v(" Iniciar upload")
+          ]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            directives: [
+              {
+                name: "show",
+                rawName: "v-show",
+                value: _vm.$refs.upload && _vm.$refs.upload.active,
+                expression: "$refs.upload && $refs.upload.active"
+              }
+            ],
+            staticClass: "btn btn-danger",
+            attrs: { type: "button" },
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.$refs.upload.active = false
+              }
+            }
+          },
+          [_vm._v("Stop upload")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-danger",
+            on: {
+              click: function($event) {
+                $event.preventDefault()
+                _vm.remover()
+              }
+            }
+          },
+          [_vm._v("Remove")]
+        )
+      ],
+      1
+    )
+  ])
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-01b80c28", module.exports)
+  }
+}
+
+/***/ }),
+/* 251 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);
