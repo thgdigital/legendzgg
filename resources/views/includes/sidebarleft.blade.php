@@ -34,13 +34,13 @@
                 </a>
                 <ul id="sub-menu-rifa" style="display:none;">
                     <li>
-                        <a href="{{url("rifas/hextec")}}" class="shadow-azul">HEXTEC</a>
+                        <a href="{{url("rifas/categoria/hextec")}}" class="shadow-azul">HEXTEC</a>
                     </li>
                     <li>
-                        <a href="{{url("rifas/promocional")}}" class="shadow-amarelo">PROMOCIONAL</a>
+                        <a href="{{url("rifas/categoria/promocional")}}" class="shadow-amarelo">PROMOCIONAL</a>
                     </li>
                     <li>
-                        <a href="{{url("rifas/void")}}" class="shadow-roxo">VOID</a>
+                        <a href="{{url("rifas/categoria/void")}}" class="shadow-roxo">VOID</a>
                     </li>
                 </ul>
             </li>

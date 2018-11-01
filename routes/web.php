@@ -22,7 +22,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function ($router
     Route::get('', ['uses' => 'Auth\AdminController@index',  'as' => 'admin.index']);
 
     Route::group(['as'=> 'rifa.' ,'prefix'=> 'rifas','middleware' => ['auth:admin'] ], function() {
-        Route::get('{name}', ['as'=> 'categoria', 'uses'=> 'RifaController@findCat']);
+
         Route::get('edit/{id}', ['as'=> 'edit', 'uses'=> 'RifaController@edit']);
         Route::post('update', ['as'=> 'update', 'uses'=> 'RifaController@update']);
         Route::get('items/{id}', ['as'=> 'categoria', 'uses'=> 'RifaController@items']);
@@ -165,7 +165,9 @@ Route::group(['as'=> 'pagseguro.' ,'prefix'=> 'pagseguro', 'middleware' => ['aut
 Route::group(['as'=> 'rifa.' ,'prefix'=> 'rifas' ], function() {
 
     Route::get('', ['as'=> 'index', 'uses'=> 'RifaController@index']);
-    Route::get('{name}', ['as'=> 'categoria', 'uses'=> 'RifaController@categoria']);
+    Route::get('categoria/{name}', ['as'=> 'categoria', 'uses'=> 'RifaController@categoria']);
+    Route::get('historicos', ['as'=> 'historicos', 'uses'=> 'RifaController@historicos']);
+    Route::get('{name}/items/{nameItem}', ['as'=> 'show', 'uses'=> 'ItemsController@show']);
 
 
 });

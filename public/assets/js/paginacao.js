@@ -291,7 +291,7 @@ $("#container-avatar").on("click", "button.checkboxTamanho", function() {
         var n = valor_aposta.toFixed(2);
         $("#Valor_Aposta_formatado").html("Sua aposta: " + n);
 
-        if (valor_aposta < valor_saldo) {
+        if (valor_aposta <= valor_saldo) {
             $("#laber_continuar").css("display", "none");
             $("#escolha_numero_continuar").css("display", "block");
         }

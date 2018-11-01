@@ -8,6 +8,7 @@
     <?php
 
     $cor = "";
+            $slug =$categoria->slug;
 
 
     if(strtolower($categoria->name) == "hextec"){
@@ -50,14 +51,14 @@
                     <div class="col-sm-4">
                         <div class="image-rifas border-image border-color-<?php echo $cor; ?>">
 
-                            <a href="{{url("items/$item->slug")}}">
+                            <a href="{{url("rifas/$slug/items/$item->slug")}}">
 
                                 <img
                                      src="<?=Croppa::url('/storage/rifas/'.$urlImage, 260, 190)?>"/>
 
                             </a>
                             <span class="title-img-rifas shadow-<?php echo $cor; ?>">  {{$item->name}}</span>
-                            <a href="{{url("items/$item->slug")}}" class="btn valor-rifas">Valor: <small>$
+                            <a href="{{url("rifas/$slug/items/$item->slug")}}" class="btn valor-rifas">Valor: <small>$
                                    <?php echo number_format($item->valor_rifa, 2, ',', '.')?></small></a>
                         </div>
                     </div>

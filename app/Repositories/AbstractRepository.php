@@ -1,11 +1,6 @@
 <?php
-namespace  App\Repositories;
-/**
- * Created by PhpStorm.
- * User: thiago
- * Date: 24/09/2018
- * Time: 15:00
- */
+namespace App\Repositories;
+
 abstract class AbstractRepository
 {
     /**
@@ -54,13 +49,15 @@ abstract class AbstractRepository
         } elseif (count($criteria > 1)) {
             $model = $model->where($criteria[0], $criteria[1], $criteria[2]);
         }
+        if($orderBy != null || $orderBy != ""){
 
-        if (count($orderBy) == 1) {
-            foreach ($orderBy as $order) {
-                $model = $model->orderBy($order[0], $order[1]);
+            if (count($orderBy) == 1) {
+                foreach ($orderBy as $order) {
+                    $model = $model->orderBy($order[0], $order[1]);
+                }
+            } elseif (count($orderBy > 1)) {
+                $model = $model->orderBy($orderBy[0], $orderBy[1]);
             }
-        } elseif (count($orderBy > 1)) {
-            $model = $model->orderBy($orderBy[0], $orderBy[1]);
         }
 
         if (count($limit)) {

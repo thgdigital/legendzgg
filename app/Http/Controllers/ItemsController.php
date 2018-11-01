@@ -170,16 +170,25 @@ class ItemsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($slug)
+    public function show($categoria, $item)
 
     {
-        //
-        $where = ['slug'=> $slug];
 
 
-        $items = Item::where($where)->with("rifas")->first();
+        $where = ['name'=> $categoria];
+        $rifa = Rifa::where($where)->with(['items' => function ($query) use  ($item) {
+            $query->where('status', 1);
+            $query->where('slug', $item);
 
-        $user = DB::table('items_jogador')->where('items_id', $items->id)->orderBy('numeber', 'asc')->get();
+        }])->first();
+        $user = null;
+        $items = null;
+        if (count($rifa->items) > 0){
+            $items = $rifa->items[0];
+            $user = DB::table('items_jogador')->where('items_id', $rifa->items[0]->id)->orderBy('numeber', 'asc')->get();
+        }
+
+
 
         $width = ['item' => $items, 'users'=> $user];
 

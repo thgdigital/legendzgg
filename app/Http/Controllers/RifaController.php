@@ -1,9 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use App\Models\Categoria;
 use App\Models\Rifa;
+use App\Repositories\RifaRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 use Validator;
@@ -11,6 +11,19 @@ use Illuminate\Support\Facades\DB;
 
 class RifaController extends Controller
 {
+
+    public  $repository;
+
+    /**
+     * RifaController constructor.
+     * @param $repository
+     */
+    public function __construct(RifaRepository $repository)
+    {
+        $this->repository = $repository;
+    }
+
+
     /**
      * Display a listing of the resource.
      *
@@ -205,21 +218,39 @@ class RifaController extends Controller
         return $rifas;
     }
 
-    public  function  categoria($name){
+    public  function  historicos(){
+
+        $where = ['is_fechada' => 1];
+
+
+
+
+        $rifas = Rifa::where($where)->where('date_fim','<=' ,date('Y-m-d'))->with(['items' => function ($query) {
+            $query->where('status', 1);
+
+        }])->where($where)->get();
+        return response()->json($rifas);
+
+        return view('pages.rifas' )->with(['rifas'=> $rifas]);
+    }
+
+    public function  categoria($name){
 
         $where = ['slug'=> $name];
 
         $categoria = Categoria::where($where)->first();
 
 
+        $where = ['categoria_id'=> $categoria->id, 'is_fechada' => 0];
 
-        $where = ['categoria_id'=> $categoria->id];
-
-        $rifas = Rifa::where($where)->where('date_fim','<=' ,date('Y-m-d'))->with(['items' => function ($query) {
+        $rifas = Rifa::where($where)->where('date_fim','<=' ,date('Y-m-d'))->with(['items' => function ($query)  {
             $query->where('status', 1);
 
         }])->where($where)->get();
 
+
         return view('pages.rifas' )->with(['rifas'=> $rifas, 'categoria' => $categoria]);
     }
+
+
 }
