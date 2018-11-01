@@ -179,7 +179,7 @@ class ItemsController extends Controller
 
         $items = Item::where($where)->with("rifas")->first();
 
-        $user = DB::table('items_jogador')->where('items_id', $items[0]['id'])->orderBy('numeber', 'asc')->get();
+        $user = DB::table('items_jogador')->where('items_id', $items->id)->orderBy('numeber', 'asc')->get();
 
         $width = ['item' => $items, 'users'=> $user];
 

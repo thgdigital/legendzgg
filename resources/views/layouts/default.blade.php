@@ -23,7 +23,7 @@
 
     <div class="clear">
         <script src="{{ asset('admin/js/app.js') }}"></script>
-       
+
         <script src="{{ asset('assets/js/jquery.mask.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.validate.js') }}"></script>
         <script src="{{ asset('assets/js/jquery.fancybox.min.js') }}"></script>
