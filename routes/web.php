@@ -22,7 +22,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function ($router
     Route::get('', ['uses' => 'Auth\AdminController@index',  'as' => 'admin.index']);
 
     Route::group(['as'=> 'rifa.' ,'prefix'=> 'rifas','middleware' => ['auth:admin'] ], function() {
-
+        Route::get('{name}', ['as'=> 'categoria', 'uses'=> 'RifaController@findCat']);
         Route::get('edit/{id}', ['as'=> 'edit', 'uses'=> 'RifaController@edit']);
         Route::post('update', ['as'=> 'update', 'uses'=> 'RifaController@update']);
         Route::get('items/{id}', ['as'=> 'categoria', 'uses'=> 'RifaController@items']);
