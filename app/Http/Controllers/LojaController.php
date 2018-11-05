@@ -7,8 +7,10 @@ use App\Models\Jogador;
 use App\Models\Loja;
 use App\Models\Slider;
 use App\Repositories\LojaRepository;
+use App\Models\Saque;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class LojaController extends Controller
 {
@@ -26,6 +28,47 @@ class LojaController extends Controller
     public function index()
     {
 
+
+    }
+
+
+
+    public function salverSaque(Request $request){
+        $saque = $request->input("regaste");
+        $type = $request->input("tipo");
+        if($saque >= 5 && $saque <= 20){
+            $userId  = Auth::user()->id;
+            $user  = Jogador::find($userId);
+            $where = ['jogador_id' => $userId, 'status'=> 0];
+            $saqueLoja = Saque::where($where)->first();
+
+            if($saqueLoja){
+                return redirect('loja/saque')->with('error', 'Você ainda tem regaste pendente');
+            }else{
+                $saved = Saque::create([
+                    'status' => 0,
+                    'saque' => $saque,
+                    'jogador_id' => $userId,
+                    'type' => $type,
+                    'admin_id' => null
+                ]);
+
+                if($saved){
+                    return redirect('loja/saque')->with('success', 'Pedido realizado com sucesso');
+                }
+                return redirect('loja/saque')->with('error', 'Error ao salvar dados');
+            }
+
+
+        }else{
+            return redirect('loja/saque')->with('error', 'O valor minimo é 5 maximo 20');
+        }
+
+
+    }
+
+    public function saque(){
+        return view('pages.saque');
     }
 
     public function lojaInvatario()

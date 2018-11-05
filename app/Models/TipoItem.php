@@ -8,4 +8,8 @@ class TipoItem extends Model
 {
     //
 
+    protected $fillable = [
+        "name"
+    ];
+
 }

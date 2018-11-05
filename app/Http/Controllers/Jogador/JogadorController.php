@@ -12,6 +12,7 @@ use App\Models\Endereco;
 use App\Models\Jogador;
 use App\Models\OrderPedido;
 use App\Models\Saldo;
+use App\Models\Transacao;
 use App\Models\VerifyJogador;
 use App\Repositories\JogadorRepository;
 use Illuminate\Http\Request;
@@ -170,7 +171,10 @@ class JogadorController extends Controller
 
         $res = Jogador::where('id',$id)->delete();
 
+
         if($res){
+
+            OrderPedido::where('jogador_id',$id)->delete();
             return redirect('admin/user')->with('success', 'Usuario apagado com sucesso');
         }
         return redirect('admin/user')->with('error', 'Error ao  apagar o usuario');

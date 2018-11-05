@@ -26,26 +26,48 @@
             </div>
 
             <div class="box-body table-responsive ">
+                @if (session('status'))
+                    <div class="alert alert-warning">
+                        {{ session('status') }}
+                    </div>
+                @endif
+                @if (session('success'))
+                    <div class="alert alert-success">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                @if (session('warning'))
+                    <div class="alert alert-warning">
+                        {{ session('warning') }}
+                    </div>
+                @endif
+                @if (session('error'))
+                    <div class="alert alert-danger">
+                        {{ session('error') }}
+                    </div>
+                @endif
                 <table class="table table-bordered  table-responsive table-hover">
                     <tr>
-                        <th>ID</th>
+
                         <th>Valor R.</th>
-                        <th>Valor V.</th>
-                        <th>Valor RP.</th>
+
                         <th>Username</th>
                         <th>Numero</th>
                         <th>Data</th>
+                        <th>Açoes</th>
                     </tr>
 
                     @foreach ($items->jogadors as $user)
                         <tr>
-                            <td>{{$user->id}}</td>
+
                             <td>R$  <?php echo  number_format($items->valor_rifa, 2, ",", "."); ?></td>
-                            <td>R$  <?php echo  number_format($items->valor_venda, 2, ",", "."); ?></td>
-                            <td>R$  <?php echo  number_format($items->valor_rp, 2, ",", "."); ?></td>
                             <td><span class="label label-primary">{{$user->username}}</span></td>
                             <td><span class="label label-success">{{$user->pivot->numeber}}</span></td>
                             <td><?php echo date('d/m/Y', strtotime($user->pivot->created_at))?></td>
+                            <td>
+                                <a href="{{url('admin/items/edit-number/'.$user->pivot->id)}}" class="btn btn-primary btn-xs"><i class="fa fa-edit"></i></a>
+                                <a href="{{url('admin/items/delete-number/'.$user->pivot->id)}}" class="btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>
+                            </td>
                          </tr>
                     @endforeach
 

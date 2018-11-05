@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Item;
+use App\Models\Jogador;
 use App\Models\Rifa;
+use App\Models\TipoItem;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -32,7 +34,8 @@ class ItemsController extends Controller
     public function create()
     {
         //
-        return view('pages.admin.cadItems');
+        $tipos = TipoItem::all();
+        return view('pages.admin.cadItems')->with('tipos', $tipos);
     }
 
     /**
@@ -69,26 +72,29 @@ class ItemsController extends Controller
         $user = Auth::user();
         $user->saldo->saldo = $user->saldo->saldo - $valor_Total;
         $user->saldo->save();
+
+
+
     }
 
     public function salvarItems(Request $request)
     {
-//        $validatedData = Validator::make($request->all(), [
-//            'ativo' => 'required',
-//            'name' => 'required',
-//            'number' => 'required',
-//            'resgatavel' => 'required',
-//            'slug' => 'required',
-//            'ativado' => 'required',
-//            'valor_rifa' => 'required',
-//            'valor_rp' => 'required',
-//            'valor_venda' => 'required'
+        $validatedData = Validator::make($request->all(), [
+
+            'name' => 'required',
+            'number' => 'required',
+            'slug' => 'required',
+            'valor_rifa' => 'required',
+            'valor_rp' => 'required',
+            'valor_venda' => 'required',
+            'tipo' => 'required'
+
+        ]);
 //
-//        ]);
-////
-//        if ($validatedData->fails()) {
-//            return response()->json($validatedData->fails());
-//        }
+        if ($validatedData->fails()) {
+            return response()->json(["status"=> false, "message"=> "Existem campos em branco"]);
+        }
+
 
 
         $saved = Item::create([
@@ -103,6 +109,8 @@ class ItemsController extends Controller
             'valor_venda' => $request->input('valor_venda'),
             'valor_essencia' => $request->input('valor_essencia'),
             'valor_credito' => $request->input('valor_credito'),
+            'tipo_items_id' => $request->input('tipo'),
+
         ]);
 
         if($saved){
@@ -111,6 +119,55 @@ class ItemsController extends Controller
         return response()->json(["status"=> false, "message"=> "Error ao salvar dados"]);
 
 
+    }
+    public function editNumber($id){
+
+        $user = DB::table('items_jogador')->where('id', $id)->orderBy('numeber', 'asc')->first();
+
+        return view('pages.admin.editNumber')->with('numbes', $user);
+    }
+
+    public function formEditNumber(Request $request){
+
+        $where = ['id'=> $request->input('itemId')];
+        $item = Item::where($where)->first();
+        $numero = $request->input('number');
+        $id = $request->input('numberId');
+        $jogador = $request->input('numberId');
+
+
+        if($numero <= $item->num_rifias){
+            $wr = ['numeber'=> $numero];
+            $user = DB::table('items_jogador')->where($wr)->orderBy('numeber', 'asc')->first();
+
+
+
+            if(!empty($user)){
+                if($user->jogador_id == $jogador){
+                    return redirect('admin/items/edit-number/'.$id)->with('success', 'Dados alterado com sucesso');
+
+                }else{
+                    return redirect('admin/items/edit-number/'.$id)->with('error', 'Esse bilhete ja esta escolhido');
+                }
+            }else{
+                DB::table('items_jogador')->where('id', $id)->update(['numeber' => $numero]);
+                return redirect('admin/items/edit-number/'.$id)->with('success', 'Dados alterado com sucesso');
+            }
+
+        }
+        return redirect('admin/items/edit-number/'.$id)->with('error', 'Este numero não esta entre 1 e '.$item->num_rifias);
+
+
+    }
+
+    public function deleteNumber($id){
+        $wr = ['id'=> $id];
+        $user = DB::table('items_jogador')->where($wr)->orderBy('numeber', 'asc')->first();
+       $saved =  DB::table('items_jogador')->where('id', '=', $id)->delete();
+        if($saved){
+            return redirect('admin/items/number/'.$user->items_id)->with('success', 'Dados excluido com sucesso');
+        }
+        return redirect('admin/items/number/'.$user->items_id)->with('error', 'Error ao excluir bilhete');
     }
 
     public function salvar(Request $request)
@@ -148,6 +205,7 @@ class ItemsController extends Controller
             'valor_venda' => $request->input('valor_venda'),
             'valor_essencia' => $request->input('valor_essencia'),
             'valor_credito' => $request->input('valor_credito'),
+            'tipo_items_id' => $request->input('tipo'),
         ]);
 
 
@@ -183,14 +241,39 @@ class ItemsController extends Controller
         }])->first();
         $user = null;
         $items = null;
+        $jogador = null;
+
+
         if (count($rifa->items) > 0){
             $items = $rifa->items[0];
             $user = DB::table('items_jogador')->where('items_id', $rifa->items[0]->id)->orderBy('numeber', 'asc')->get();
         }
+        $item = Item::with('jogadors')->where('id',$rifa->items[0]->id)->first();
 
 
+        if($rifa->is_fechada == 0 && $item->num_rifias == $item->jogadors->count()){
+            $rifa->is_fechada = 1;
 
-        $width = ['item' => $items, 'users'=> $user];
+
+            $array = [];
+            foreach($user as $number){
+                $array[] = $number->numeber;
+            }
+            $random = array_random($array);
+            $rifa->sorteio = $random;
+            $rifa->save();
+
+        }
+        
+
+
+        if($rifa->is_fechada == 1){
+
+            $itemsJogo = DB::table('items_jogador')->where('numeber', $rifa->sorteio)->orderBy('numeber', 'asc')->first();
+            $jogador = Jogador::find($itemsJogo->jogador_id);
+        }
+
+        $width = ['item' => $items, 'users'=> $user,'rifa'=> $rifa, 'jogador'=> $jogador ];
 
         return view('pages.items')->with($width);
 
@@ -223,6 +306,7 @@ class ItemsController extends Controller
         //
         $rifas = Rifa::find($id)->with("items")->get();
 
+
         return $rifas;
 
 //        $items->rifas[0]->name = str_slug($items->rifas[0]->name);
@@ -244,9 +328,10 @@ class ItemsController extends Controller
     public function find($id)
     {
         //
-       $items = Item::with('rifas')->where(['id'=> $id])->first();
+       $items = Item::with('rifas', 'tipo')->where(['id'=> $id])->first();
+        $tipo = TipoItem::all();
 
-        return $items;
+        return response()->json(["items"=> $items, 'tipo'=> $tipo]);
 
     }
     /**

@@ -24,6 +24,7 @@
                         </thead>
                         <tbody>
                         <tr v-for="trans in transacao">
+
                             <td>{{trans.id}}</td>
 
                             <td>{{trans.order.jogador.username}}</td>
@@ -97,10 +98,12 @@ export default {
 
         window.axios.get('/api/transacao').then(({ data }) => {
 
+
+            console.log(data.order)
             data.forEach(trans => {
 
             trans.libereCredit =  this.libereCredit+"/"+trans.id
-            this.transacao.push(trans)
+            this.transacao.push(trans,)
         })
 
 

@@ -20,13 +20,12 @@
             <table class="table table-bordered">
                 <thead>
                 <tr>
-                    <th>ID</th>
+
                     <th>Nome</th>
+                    <th>Imagem</th>
+                    <th>Tipo</th>
                     <th>Valor Rifa</th>
-                    <th>Valor Venda</th>
-                    <th>Valor Rp</th>
-                    <th>Valor Credito</th>
-                    <th>Valor essencia</th>
+
                     <th>N Rifas</th>
                     <th>Status</th>
                     <th>Ações</th>
@@ -35,23 +34,21 @@
                 <tbody>
                 @foreach ($items as $item)
                 <tr>
-                    <td>{{$item->id}}</td>
+
                     <td>{{$item->name}}</td>
+                    <td> <img width="80" height="80" src="<?=
+
+                        Croppa::url("/storage/rifas/$item->imagem", 80,80)?>" />
+                    </td>
+                    <td>
+                        @isset($item->tipo)
+                        <span class="label label-"> {{$item->tipo->name}}</span>
+                        @endisset
+                    </td>
                     <td>
                         R$  <?php echo  number_format($item->valor_rifa, 2, ",", "."); ?>
                         </td>
-                    <td>
-                        R$  <?php echo  number_format($item->valor_venda, 2, ",", "."); ?>
-                        </td>
-                    <td>
-                        R$  <?php echo  number_format($item->valor_rp, 2, ",", "."); ?>
-                        </td>
-                    <td>
-                        R$  <?php echo  number_format($item->valor_credito, 2, ",", "."); ?>
-                        </td>
-                    <td>
-                        R$  <?php echo  number_format($item->valor_essencia, 2, ",", "."); ?>
-                       </td>
+
                     <td>{{$item->num_rifias}}</td>
                     <td>
                         <?php if($item->status == 1){?>

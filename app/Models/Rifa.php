@@ -9,7 +9,7 @@ class Rifa extends Model
 {
     //
     protected $fillable = [
-        "name", "date_inicio", "date_fim", "categoria_id"
+        "name", "date_inicio", "date_fim", "categoria_id", 'sorteio'
     ];
 
     public function items() {

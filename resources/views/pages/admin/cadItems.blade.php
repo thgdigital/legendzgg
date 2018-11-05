@@ -33,7 +33,8 @@
                 </div>
             </div>
             <div class="box-body">
-                <cad-items ></cad-items>
+
+                <cad-items tipos="{{$tipos}}"></cad-items>
             </div>
             <!-- /.box-body -->
 

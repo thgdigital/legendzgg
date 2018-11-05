@@ -1,6 +1,6 @@
 <template>
     <div class="row">
-{{item}}
+
             <div class="col-sm-12">
                 <b-alert :show="showSucess" variant="success">{{title}}</b-alert>
                 <b-alert :show="showError" variant="danger">{{title}}</b-alert>
@@ -107,6 +107,26 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group" v-bind:class="
+
+                          [errors.first('tipo') ? 'has-error' : '']
+
+                          ">
+                                <select name="tipo" class="form-control"  v-model="item.tipo">
+                                    <option value="">Selecione um tipo</option>
+                                    <option v-model="tipo.id"
+
+                                            v-for="tipo in tipos"
+                                            v-bind:value="tipo.id">{{tipo.name}}</option>
+                                </select>
+                                <span class="help-block">
+                                        <strong>{{ errors.first('tipo') }}</strong>
+                                    </span>
+                                </div>
+                        </div>
+                    </div>
                     <b-form-group id="exampleGroup4">
                         <b-form-checkbox v-model="item.resgatavel"> Resgatavel </b-form-checkbox>
                         <b-form-checkbox v-model="item.ativo"> Ativado </b-form-checkbox>
@@ -131,7 +151,7 @@
 <script>
     var baseUrl = $('meta[name=base-url]').attr("content");
 
-    function Items({id, name, date_inicio,date_fim, created_at, updated_at, imagem, status, num_rifias, slug, valor_rifa,valor_venda ,valor_rp, valor_credito,valor_essencia, resgatavel}) {
+    function Items({id, name, date_inicio,date_fim, created_at, updated_at, imagem, status, num_rifias, slug, valor_rifa,valor_venda ,valor_rp, valor_credito,valor_essencia, resgatavel, tipo_items_id}) {
         this.id = id;
         this.created_at = created_at;
         this.date_inicio = date_inicio;
@@ -149,6 +169,7 @@
         this.ativo = status == 1 ? true: false
         this.valor_credito = valor_credito
         this.valor_essencia = valor_essencia
+        this.tipo = tipo_items_id
 
     }
     export default {
@@ -165,6 +186,7 @@
                     masked: false
                 },
                 item:{},
+                tipos:null,
                 baselUrl:baseUrl,
                 form: {
                     email: '',
@@ -186,8 +208,8 @@
 
             window.axios.get('/api/rifas/items/'+this.id).then(({ data }) => {
 
-
-            this.item = new Items(data)
+            this.tipos = data.tipo
+            this.item = new Items(data.items)
         }).catch((err) =>{
                 this.title = "Oppss Error ao buscar dados"
         })

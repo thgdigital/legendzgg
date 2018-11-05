@@ -1647,7 +1647,7 @@ footer {
 	position   : relative;
 	width      : 600px;
 	height     : 360px;
-	background : url("../assets/imagem/vencedor-rifa.png");
+	background : url("/assets/imagem/vencedor-rifa.png");
 	margin     : 20px auto;
 }
 

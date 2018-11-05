@@ -61,7 +61,10 @@ class Jogador extends Authenticatable
     {
         $this->notify(new JogadorResetPasswordNotification($token));
     }
-
+    public function saque()
+    {
+        return $this->hasOne('App\Models\Saque', 'jogador_id');
+    }
     public function credit(){
         return $this->hasOne('App\Models\Credit', 'user_id');
     }

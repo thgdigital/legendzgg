@@ -14,7 +14,7 @@
 
                           ">
                                 <label>Nome do Item</label>
-                                <input type="text"  v-model="item.name" v-validate="'required'" class="form-control" name="name" placeholder="Digite nome do item">
+                                <input type="text"  v-model="item.name" v-validate="'required'" required class="form-control" name="name" placeholder="Digite nome do item">
 
 
                                 <span class="help-block">
@@ -106,7 +106,26 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group" v-bind:class="
 
+                          [errors.first('tipo') ? 'has-error' : '']
+
+                          ">
+                                <select name="tipo" class="form-control"  v-model="item.tipo">
+                                    <option value="">Selecione um tipo</option>
+                                    <option v-model="tipo.id"
+
+                                            v-for="tipo in types"
+                                            v-bind:value="tipo.id">{{tipo.name}}</option>
+                                </select>
+                                <span class="help-block">
+                                        <strong>{{ errors.first('tipo') }}</strong>
+                                    </span>
+                            </div>
+                        </div>
+                    </div>
 
                     <b-form-group id="exampleGroup4">
                         <b-form-checkbox v-model="item.resgatavel"> Resgatavel </b-form-checkbox>
@@ -134,7 +153,13 @@
 
 
     export default {
+        props:['tipos'],
+        mounted() {
+            this.types = JSON.parse(this.tipos)
+            console.log(this.tipos)
+        },
             data () {
+
             return {
                 title:'',
                 money: {
@@ -147,8 +172,14 @@
                 },
                 item:{
                     slug: "",
-                    name:""
+                    name:"",
+                    tipo:"",
+                    ativo:false,
+                    resgatavel:false
+
                 },
+                types:null,
+
                 baselUrl:baseUrl,
                 form: {
                     email: '',
@@ -182,7 +213,12 @@
                     this.showError = false
 
                     }else{
-                        this.title = "Oppss Error ao salvar dados"
+                        if(data.message != null){
+                            this.title = data.message;
+                        }else{
+                            this.title = "Oppss Error ao salvar dados"
+                        }
+
                         this.showSucess = false
                         this.showError = true
                 }

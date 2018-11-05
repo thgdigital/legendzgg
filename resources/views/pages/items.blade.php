@@ -6,6 +6,7 @@
     @isset($item)
 
 
+
 @section('pageTitle',$item->name)
 <div class="row">
     <div class="col-md-6">
@@ -108,6 +109,17 @@
                 <button type="button" class="btn btn-primary btn-block" id="carrageMais">Carregar mais rifas</button>
             </div>
         </div>
+        @if($rifa->is_fechada == 1)
+        <div class="box-vencedor">
+
+            <div class="bg-vencedor">
+                <img  src="<?=
+
+                Croppa::url("/storage/jogadores/$jogador->avatar", 100,100)?>" id="bg-profile" />
+
+            </div>
+        </div>
+            @endif
     </div>
 
 
@@ -125,6 +137,7 @@
         </button>
     </div>
 </div>
+
 </div>
 </div>
 

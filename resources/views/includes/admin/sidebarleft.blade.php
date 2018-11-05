@@ -65,10 +65,24 @@
             </ul>
             </li>
             <li class="{{setActive('admin/transacao')}}">
-                <a href="{{route('transacao.index')}}">
-                    <i class="fa fa-money"></i> <span>Transações</span>
-                     </span>
+
+                <a href="#"><i class="fa fa-ticket"></i> Transações
+                    <span class="pull-right-container">
+                  <i class="fa fa-angle-left pull-right"></i>
+                </span>
                 </a>
+
+                <ul class="treeview-menu">
+                    <li class="{{setActive('admin/transacao/compra')}}">
+                        <a href="{{route('transacao.compra')}}"><i class="fa fa-circle-o"></i> Compras</a></li>
+
+                    <li class="{{setActive('admin/transacao/saque')}}"><a href="{{route('transacao.saqueLoja')}}"><i class="fa fa-circle-o"></i> Saques</a></li>
+                    <li class="{{setActive('admin/transacao/loja')}}"><a href="{{route('transacao.loja')}}"><i class="fa fa-circle-o"></i> Loja</a></li>
+                </ul>
+
+
+
+
             </li>
             <li class="{{setActive('admin/suporte')}}">
                 <a href="{{route('admin.suporte.index')}}">

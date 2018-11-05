@@ -40,8 +40,13 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function ($router
     });
 
     Route::group(['as'=> 'transacao.' ,'prefix'=> 'transacao','middleware' => ['auth:admin'] ], function() {
+        Route::get('compra', ['as'=> 'compra', 'uses'=> 'TransacaoController@compra']);
         Route::get('', ['as'=> 'index', 'uses'=> 'TransacaoController@index']);
         Route::get('/credit/{id}', ['as'=> 'credit', 'uses'=> 'TransacaoController@credit']);
+        Route::get('saque', ['as'=> 'saqueLoja', 'uses'=> 'TransacaoController@saqueAll']);
+        Route::post('saque/edit/', ['as'=> 'saqueEdit', 'uses'=> 'TransacaoController@saqueEdit']);
+        Route::get('loja', ['as'=> 'loja', 'uses'=> 'TransacaoController@loja']);
+
 
 
     });
@@ -67,6 +72,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function ($router
         Route::get('slider-compra-delete/{id}', ['as'=> 'deleteSliderCompra', 'uses'=> 'LojaController@deleteSliderCompra']);
 
 
+
     });
 
     Route::group(['as'=> 'administradores.' ,'prefix'=> 'administradores','middleware' => ['auth:admin'] ], function() {
@@ -85,6 +91,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin']], function ($router
     Route::group(['as'=> 'items.' ,'prefix'=> 'items', 'middleware' => ['auth:admin'] ], function() {
         Route::get('home', ['as'=> 'home', 'uses'=> 'ItemsController@index']);
         Route::get('create', ['as'=> 'create', 'uses'=> 'ItemsController@create']);
+        Route::get('edit-number/{id}', ['as'=> 'editNumber', 'uses'=> 'ItemsController@editNumber']);
+        Route::post('form-number', ['as'=> 'formEditNumber', 'uses'=> 'ItemsController@formEditNumber']);
+        Route::get('delete-number/{id}', ['as'=> 'deleteNumber', 'uses'=> 'ItemsController@deleteNumber']);
 
     });
 
@@ -134,6 +143,8 @@ Route::group(['as'=> 'loja.' ,'prefix'=> 'loja', 'middleware' => ['auth:jogador'
     Route::get('loja-compra/credito/{id}', ['as'=> 'compraCredito', 'uses'=> 'LojaController@compraCredito']);
     Route::get('loja-compra/essencia/{id}', ['as'=> 'compraEssencia', 'uses'=> 'LojaController@compraEssencia']);
     Route::get('loja-compra/resgate/{id}', ['as'=> 'compraResgatavel', 'uses'=> 'LojaController@compraResgatavel']);
+    Route::get('saque', ['as'=> 'saque', 'uses'=> 'LojaController@saque']);
+    Route::post('saque-salvar', ['as'=> 'salverSaque', 'uses'=> 'LojaController@salverSaque']);
 });
 
 Route::group(['as'=> 'suporte.' ,'prefix'=> 'suporte', 'middleware' => ['auth:jogador'] ], function() {
@@ -180,6 +191,8 @@ Route::group(['as'=> 'paypal.' ,'prefix'=> 'paypal' ], function() {
 
 
 });
+
+
 
 
 Route::post('notificacao-pagseguro', ['as'=> 'notificacaopagseguro', 'uses'=> 'PagseguroController@notificacaopagseguro']);

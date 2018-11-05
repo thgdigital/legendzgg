@@ -5,7 +5,7 @@
     <li><a href="#">BAU</a></li>
     <li><a href="#">CARTA</a></li>
     <li><a href="#">BRINDE</a></li>
-    <li><a href="#">SAQUE</a></li>
+    <li><a href="{{url('loja/saque')}}" class="{{setFrontActive('loja/saque')}}">SAQUE</a></li>
 
     <li><a href="{{url('pagseguro/carrinho')}}"
            class="{{setFrontActive('pagseguro/carrinho')}}"

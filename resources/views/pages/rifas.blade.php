@@ -8,7 +8,7 @@
     <?php
 
     $cor = "";
-            $slug =$categoria->slug;
+
 
 
     if(strtolower($categoria->name) == "hextec"){
@@ -32,10 +32,10 @@
         <div class="row">
     @foreach($rifas as $rifa)
 
+<?php
+                $slug =$rifa->name;
 
-
-
-
+?>
 
 
                 @foreach($rifa->items as $item)

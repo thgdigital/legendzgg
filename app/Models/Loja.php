@@ -16,4 +16,9 @@ class Loja extends Model
 
 
     }
+    public function jogador() {
+        return $this->belongsToMany(Jogador::class, 'jogador_loja', 'loja_id', 'loja_id')->withPivot('valor_credito', 'valor_resgate', 'valor_essencia')->withTimestamps();
+
+
+    }
 }

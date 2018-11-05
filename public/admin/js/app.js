@@ -78439,6 +78439,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 var baseUrl = $('meta[name=base-url]').attr("content");
 
@@ -78474,6 +78475,7 @@ function Transacao(_ref) {
             var data = _ref2.data;
 
 
+            console.log(data.order);
             data.forEach(function (trans) {
 
                 trans.libereCredit = _this.libereCredit + "/" + trans.id;
@@ -78830,6 +78832,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var baseUrl = $('meta[name=base-url]').attr("content");
 
@@ -78849,7 +78871,8 @@ function Items(_ref) {
         valor_rp = _ref.valor_rp,
         valor_credito = _ref.valor_credito,
         valor_essencia = _ref.valor_essencia,
-        resgatavel = _ref.resgatavel;
+        resgatavel = _ref.resgatavel,
+        tipo_items_id = _ref.tipo_items_id;
 
     this.id = id;
     this.created_at = created_at;
@@ -78868,6 +78891,7 @@ function Items(_ref) {
     this.ativo = status == 1 ? true : false;
     this.valor_credito = valor_credito;
     this.valor_essencia = valor_essencia;
+    this.tipo = tipo_items_id;
 }
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: ['id'],
@@ -78883,6 +78907,7 @@ function Items(_ref) {
                 masked: false
             },
             item: {},
+            tipos: null,
             baselUrl: baseUrl,
             form: {
                 email: '',
@@ -78903,7 +78928,8 @@ function Items(_ref) {
             var data = _ref2.data;
 
 
-            _this.item = new Items(data);
+            _this.tipos = data.tipo;
+            _this.item = new Items(data.items);
         }).catch(function (err) {
             _this.title = "Oppss Error ao buscar dados";
         });
@@ -78990,7 +79016,6 @@ var render = function() {
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "row" }, [
-    _vm._v("\n" + _vm._s(_vm.item) + "\n            "),
     _c(
       "div",
       { staticClass: "col-sm-12" },
@@ -79373,6 +79398,81 @@ var render = function() {
                     ])
                   ],
                   1
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "form-group",
+                    class: [_vm.errors.first("tipo") ? "has-error" : ""]
+                  },
+                  [
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.item.tipo,
+                            expression: "item.tipo"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { name: "tipo" },
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.item,
+                              "tipo",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          }
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { value: "" } }, [
+                          _vm._v("Selecione um tipo")
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(_vm.tipos, function(tipo) {
+                          return _c(
+                            "option",
+                            {
+                              domProps: { value: tipo.id },
+                              model: {
+                                value: tipo.id,
+                                callback: function($$v) {
+                                  _vm.$set(tipo, "id", $$v)
+                                },
+                                expression: "tipo.id"
+                              }
+                            },
+                            [_vm._v(_vm._s(tipo.name))]
+                          )
+                        })
+                      ],
+                      2
+                    ),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "help-block" }, [
+                      _c("strong", [_vm._v(_vm._s(_vm.errors.first("tipo")))])
+                    ])
+                  ]
                 )
               ])
             ]),
@@ -79650,11 +79750,36 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 var baseUrl = $('meta[name=base-url]').attr("content");
 
 /* harmony default export */ __webpack_exports__["default"] = ({
+    props: ['tipos'],
+    mounted: function mounted() {
+        this.types = JSON.parse(this.tipos);
+        console.log(this.tipos);
+    },
     data: function data() {
+
         return {
             title: '',
             money: {
@@ -79667,8 +79792,14 @@ var baseUrl = $('meta[name=base-url]').attr("content");
             },
             item: {
                 slug: "",
-                name: ""
+                name: "",
+                tipo: "",
+                ativo: false,
+                resgatavel: false
+
             },
+            types: null,
+
             baselUrl: baseUrl,
             form: {
                 email: '',
@@ -79702,7 +79833,12 @@ var baseUrl = $('meta[name=base-url]').attr("content");
                     _this.showSucess = true;
                     _this.showError = false;
                 } else {
-                    _this.title = "Oppss Error ao salvar dados";
+                    if (data.message != null) {
+                        _this.title = data.message;
+                    } else {
+                        _this.title = "Oppss Error ao salvar dados";
+                    }
+
                     _this.showSucess = false;
                     _this.showError = true;
                 }
@@ -79810,6 +79946,7 @@ var render = function() {
                       staticClass: "form-control",
                       attrs: {
                         type: "text",
+                        required: "",
                         name: "name",
                         placeholder: "Digite nome do item"
                       },
@@ -80147,6 +80284,81 @@ var render = function() {
                     ])
                   ],
                   1
+                )
+              ])
+            ]),
+            _vm._v(" "),
+            _c("div", { staticClass: "row" }, [
+              _c("div", { staticClass: "col-sm-12" }, [
+                _c(
+                  "div",
+                  {
+                    staticClass: "form-group",
+                    class: [_vm.errors.first("tipo") ? "has-error" : ""]
+                  },
+                  [
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.item.tipo,
+                            expression: "item.tipo"
+                          }
+                        ],
+                        staticClass: "form-control",
+                        attrs: { name: "tipo" },
+                        on: {
+                          change: function($event) {
+                            var $$selectedVal = Array.prototype.filter
+                              .call($event.target.options, function(o) {
+                                return o.selected
+                              })
+                              .map(function(o) {
+                                var val = "_value" in o ? o._value : o.value
+                                return val
+                              })
+                            _vm.$set(
+                              _vm.item,
+                              "tipo",
+                              $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            )
+                          }
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { value: "" } }, [
+                          _vm._v("Selecione um tipo")
+                        ]),
+                        _vm._v(" "),
+                        _vm._l(_vm.types, function(tipo) {
+                          return _c(
+                            "option",
+                            {
+                              domProps: { value: tipo.id },
+                              model: {
+                                value: tipo.id,
+                                callback: function($$v) {
+                                  _vm.$set(tipo, "id", $$v)
+                                },
+                                expression: "tipo.id"
+                              }
+                            },
+                            [_vm._v(_vm._s(tipo.name))]
+                          )
+                        })
+                      ],
+                      2
+                    ),
+                    _vm._v(" "),
+                    _c("span", { staticClass: "help-block" }, [
+                      _c("strong", [_vm._v(_vm._s(_vm.errors.first("tipo")))])
+                    ])
+                  ]
                 )
               ])
             ]),

@@ -52,16 +52,31 @@
                     <th>ID</th>
                     <th>Username</th>
                     <th>E-mail</th>
-                    <th>Data</th>
+                    <th>Cupom</th>
+                    <th>Crédito</th>
+                    <th>Essência</th>
+                    <th>Data de criação</th>
                     <th>Status</th>
                     <th>Ações</th>
                 </tr>
 
                 @foreach ($users as $user)
+
+                    <?php
+                    $valorSaldo =  $user->saldo->saldo != null ? $user->saldo->saldo : 0;
+                    $valoressencia =  $user->saldo->essencia != null ? $user->saldo->essencia : 0;
+
+                    $saldo =   str_replace(".", ",", $valorSaldo);
+                    $essencia =  str_replace(".", ",",$valoressencia);
+                    ?>
                 <tr>
                     <td>{{$user->id}}</td>
                     <td>{{$user->username}}</td>
                     <td>{{$user->email}}</td>
+                    <td>{{$user->code}}</td>
+                    <td>{{$saldo}}</td>
+                    <td>{{$essencia}}</td>
+
                     <td><?php echo date('d/m/Y', strtotime($user->created_at))?></td>
                     <td>
                         <?php if($user->verified == 1){?>

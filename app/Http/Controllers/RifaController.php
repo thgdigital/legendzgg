@@ -18,7 +18,7 @@ class RifaController extends Controller
      * RifaController constructor.
      * @param $repository
      */
-    public function __construct(RifaRepository $repository)
+    public function __construct( RifaRepository $repository)
     {
         $this->repository = $repository;
     }
@@ -180,10 +180,15 @@ class RifaController extends Controller
 
     public  function  findCat($name){
         $where = ['slug'=> $name];
+
         $categoria = Categoria::where($where)->first();
 
 
-        return view('pages.admin.rifas' )->with('categoria', $categoria);
+        $where = ['categoria_id'=> $categoria->id];
+
+        $rifas = Rifa::where($where)->with(['items.jogadors'])->where($where)->get();
+
+        return view('pages.admin.rifas' )->with(['categoria'=> $categoria, 'rifas'=> $rifas ]);
 
     }
 
@@ -218,32 +223,17 @@ class RifaController extends Controller
         return $rifas;
     }
 
-    public  function  historicos(){
-
-        $where = ['is_fechada' => 1];
-
-
-
-
-        $rifas = Rifa::where($where)->where('date_fim','<=' ,date('Y-m-d'))->with(['items' => function ($query) {
-            $query->where('status', 1);
-
-        }])->where($where)->get();
-        return response()->json($rifas);
-
-        return view('pages.rifas' )->with(['rifas'=> $rifas]);
-    }
-
-    public function  categoria($name){
+    public  function  categoria($name){
 
         $where = ['slug'=> $name];
 
         $categoria = Categoria::where($where)->first();
 
 
+
         $where = ['categoria_id'=> $categoria->id, 'is_fechada' => 0];
 
-        $rifas = Rifa::where($where)->where('date_fim','<=' ,date('Y-m-d'))->with(['items' => function ($query)  {
+        $rifas = Rifa::where($where)->where('date_fim','<=' ,date('Y-m-d'))->with(['items' => function ($query) {
             $query->where('status', 1);
 
         }])->where($where)->get();
@@ -252,5 +242,17 @@ class RifaController extends Controller
         return view('pages.rifas' )->with(['rifas'=> $rifas, 'categoria' => $categoria]);
     }
 
+    public  function  historicos(){
 
+        $where = ['is_fechada' => 1,'status'=> 1];
+
+//        $rifas = Rifa::all()->with(['items' => function ($query) {
+//            $query->where('status', 1);
+//
+//        }])->where($where)->get();
+        $rifas = $this->repository->findBy(['is_fechada'=>1, 'status'=>1], ['date_fim'=>'asc']);
+return response()->json($rifas);
+
+        return view('pages.rifas' )->with(['rifas'=> $rifas]);
+    }
 }
