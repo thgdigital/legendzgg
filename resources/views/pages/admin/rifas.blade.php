@@ -91,7 +91,10 @@
                                     $num_rifias = $rifa->items[0]->num_rifias;
                                     $idItem = $rifa->items[0]->id;
 
-                                $total = round(count($rifa->items[0]->jogadors) / 100 * $num_rifias) ;
+                                $total = round($rifa->items[0]->jogadors->count() * 100 / $num_rifias) ;
+
+
+                                echo $rifa->items[0]->jogadors->count();
                                 }
 
 
