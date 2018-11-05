@@ -28,4 +28,9 @@ class Item extends Model
         return $this->belongsTo('App\Models\TipoItem', 'tipo_items_id');
     }
 
+    function  vencedor($number){
+
+        return $this->belongsToMany(Jogador::class, 'items_jogador', 'items_id')->wherePivot('numeber', $number);
+    }
+
 }

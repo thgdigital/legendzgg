@@ -77,7 +77,7 @@
                                 $idItem = null;
                                 $dateInicial = date('d/m/Y', strtotime($rifa->date_inicio));
                                 $dateFim = date('d/m/Y', strtotime($rifa->date_fim));
-
+                            $vencedor = null;
                             $total = 0;
 
                             if(count($rifa->items) > 0){
@@ -92,9 +92,10 @@
                                     $idItem = $rifa->items[0]->id;
 
                                 $total = round($rifa->items[0]->jogadors->count() * 100 / $num_rifias) ;
+                                if($rifa->is_fechada == 1){
+                                     $vencedor = $rifa->items[0]->jogadors()->wherePivot('numeber', $rifa->sorteio)->first();
+                                }
 
-
-                                echo $rifa->items[0]->jogadors->count();
                                 }
 
 
@@ -110,25 +111,29 @@
                                 Croppa::url("/storage/rifas/$imagam", 80,80)?>" />
 
 
-
                             </td>
                                 <td>{{$rifa->name}}</td>
-                            <td> <span class="label label-info">{{$tipo}}</span></td>
-                            <td>
-                                R$  <?php echo  number_format($valorRifa, 2, ",", "."); ?>
-                            </td>
-                            <td>{{$num_rifias}}</td>
-                            <td>
-                                <div class="progress progress-xs progress-striped active">
-                                    <div class="progress-bar progress-bar-primary"
-                                        style="width: <?php echo  $total?>%"
+                                <td> <span class="label label-info">{{$tipo}}</span></td>
+                                <td>
+                                    R$  <?php echo  number_format($valorRifa, 2, ",", "."); ?>
+                                </td>
+                                <td>{{$num_rifias}}</td>
+                                <td>
+                                    <div class="progress progress-xs progress-striped active">
+                                        <div class="progress-bar progress-bar-primary"
+                                             style="width: <?php echo  $total?>%"
 
-                                    ></div>
-                                </div>
+                                        ></div>
+                                    </div>
+                                </td>
+                                <td>{{$dateInicial}}</td>
+                                <td>{{$dateFim}}</td>
+                                <td>
+                                    @isset($vencedor)
+                                    <span class="label label-success">{{$vencedor->username}}</span>
+
+                                    @endisset
                             </td>
-                            <td>{{$dateInicial}}</td>
-                            <td>{{$dateFim}}</td>
-                            <td></td>
                             <td>
                                 <?php if($rifa->is_fechada == 0){?>
                                 <span class="label label-success">Em andamento</span>
