@@ -188,6 +188,8 @@ class RifaController extends Controller
 
         $rifas = Rifa::where($where)->with(['items.jogadors'])->where($where)->get();
 
+   
+
         return view('pages.admin.rifas' )->with(['categoria'=> $categoria, 'rifas'=> $rifas ]);
 
     }

@@ -23,5 +23,9 @@ class Item extends Model
 
     }
 
+    function  tipo(){
+
+        return $this->belongsTo('App\Models\TipoItem', 'tipo_items_id');
+    }
 
 }
