@@ -231,14 +231,13 @@ class RifaController extends Controller
 
         $categoria = Categoria::where($where)->first();
 
-
-
         $where = ['categoria_id'=> $categoria->id, 'is_fechada' => 0];
 
         $rifas = Rifa::where($where)->where('date_fim','<=' ,date('Y-m-d'))->with(['items' => function ($query) {
             $query->where('status', 1);
 
         }])->where($where)->get();
+
 
 
         return view('pages.rifas' )->with(['rifas'=> $rifas, 'categoria' => $categoria]);
