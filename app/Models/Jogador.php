@@ -73,4 +73,9 @@ class Jogador extends Authenticatable
     public function loja(){
         return $this->belongsToMany('App\Models\Loja', 'jogador_loja', 'jogador_id', 'loja_id')->withPivot('valor_credito', 'valor_resgate', 'valor_essencia')->withTimestamps();
     }
+
+    function  inventario(){
+
+        return $this->hasOne('App\Models\Inventario', 'jogador_id');
+    }
 }

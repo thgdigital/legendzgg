@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Inventario;
 use App\Models\Item;
 use App\Models\Jogador;
 use App\Models\Rifa;
@@ -245,10 +246,10 @@ class ItemsController extends Controller
 
 
         if (count($rifa->items) > 0){
-            $items = $rifa->items[0];
-            $user = DB::table('items_jogador')->where('items_id', $rifa->items[0]->id)->orderBy('numeber', 'asc')->get();
+            $items = $rifa->items->first();
+            $user = DB::table('items_jogador')->where('items_id', $items->id)->orderBy('numeber', 'asc')->get();
         }
-        $item = Item::with('jogadors')->where('id',$rifa->items[0]->id)->first();
+        $item = Item::with('jogadors')->where('id',$items->id)->first();
 
 
         if($rifa->is_fechada == 0 && $item->num_rifias == $item->jogadors->count()){
@@ -262,6 +263,17 @@ class ItemsController extends Controller
             $random = array_random($array);
             $rifa->sorteio = $random;
             $rifa->save();
+
+            $itemsJogo = DB::table('items_jogador')->where('numeber', $random)->orderBy('numeber', 'asc')->first();
+            $jogador = Jogador::find($itemsJogo->jogador_id);
+
+            $inventario = new Inventario([
+                'send' => 1,
+                'is_liberado' => 0,
+                'jogador_id'=> $jogador->id
+
+            ]);
+
 
         }
         

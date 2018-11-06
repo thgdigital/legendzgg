@@ -33,4 +33,9 @@ class Item extends Model
         return $this->belongsToMany(Jogador::class, 'items_jogador', 'items_id')->wherePivot('numeber', $number);
     }
 
+    function  inventario(){
+
+        return $this->hasOne('App\Models\Inventario', 'item_id');
+    }
+
 }
