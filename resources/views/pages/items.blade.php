@@ -118,7 +118,7 @@
                 if($jogador->avatar){
                     $image = $jogador->avatar;
                 }else{
-                    $image ="profiler";
+                    $image ="profiler.png";
                 }
 
                 ?>
