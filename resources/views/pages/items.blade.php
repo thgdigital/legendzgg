@@ -113,10 +113,16 @@
         <div class="box-vencedor">
 
             <div class="bg-vencedor">
+                @if($jogador->avatar != nul)
                 <img  src="<?=
 
                 Croppa::url("/storage/jogadores/$jogador->avatar", 100,100)?>" id="bg-profile" />
 
+                 @else
+                    <img  src="<?=
+
+                    Croppa::url("/storage/jogadores/profiler.png", 100,100)?>" id="bg-profile" />
+                @endif
             </div>
         </div>
             @endif

@@ -416,7 +416,7 @@ class ItemsController extends Controller
 
                         $foto =  url("storage/jogadores/{$dados_rifas->avatar}");
                     } else {
-                        $foto = '/imagem/profiler.png';
+                        $foto = url("storage/jogadores/profiler.png");
                     }
 
                     $array ['dados'] [] = ['numero' => $contador, "thumb" => $foto, "status_logado" => $status];
