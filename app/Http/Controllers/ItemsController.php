@@ -270,7 +270,7 @@ class ItemsController extends Controller
             $inventario = new Inventario([
                 'send' => 1,
                 'is_liberado' => 0,
-                'jogador_id'=> $jogador->id
+                'jogador_id'=> $itemsJogo->jogador_id
 
             ]);
 
