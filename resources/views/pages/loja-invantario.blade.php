@@ -4,30 +4,46 @@
     @include('includes.menu')
 
     <div class="box-loja">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if (session('status'))
+            <div class="alert alert-warning">
+                {{ session('status') }}
+            </div>
+        @endif
+        @if (session('warning'))
+            <div class="alert alert-warning">
+                {{ session('warning') }}
+            </div>
+        @endif
         <div class="inventario-left">
             <div class="form-group">
                 <input class="form-control custom-search"  placeholder="Buscar"/>
             </div>
+            @isset ($tipos)
+
             <ul id="menu-inventario">
+                @foreach ($tipos as $tipo)
                 <li class="active-inventario">
-                    <a href="#">skin</a>
+                    <a href="{{url('inventario?tipo='.$tipo->id)}}">{{$tipo->name}}</a>
                 </li>
-                <li>
-                    <a href="#">campeão</a>
-                </li>
-                <li>
-                    <a href="#">bau</a>
-                </li>
-                <li>
-                    <a href="#">carta</a>
-                </li>
-                <li>
-                    <a href="#">brinde</a>
-                </li>
-                <li>
-                    <a href="#">outros</a>
-                </li>
+             
+                @endforeach
             </ul>
+            @endisset
             <div class="selected-filtro">
                 <span class="title-selected">Data de lançamentos</span>
                 <i class="fa fa-long-arrow-up" aria-hidden="true"></i>
@@ -79,8 +95,10 @@
         <div class="inventario-right">
 
             <ul id="skin-collection">
-                @isset ($compras)
-                    @foreach ($compras as $compra)
+                @isset ($inventarios)
+                    @foreach ($inventarios as $compra)
+
+                        <?php if( $compra->compra != 1){?>
                         <li>
                             <a data-fancybox data-src="#hidden-content-<?php echo $compra->items->id; ?>" href="javascript:;">
                             <div class="thumbnail-loja">
@@ -146,6 +164,7 @@
             </div>
         </div>
                         </li>
+                            <?php } ?>
                     @endforeach
                 @endisset
 
@@ -162,5 +181,5 @@
     </div>
 @stop
 @push('scripts')
-<script src="{{ asset('assets/js/loja_compra.js') }}"></script>
+<script src="{{ asset('assets/js/inventario.js') }}"></script>
 @endpush

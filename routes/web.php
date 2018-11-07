@@ -192,6 +192,14 @@ Route::group(['as'=> 'paypal.' ,'prefix'=> 'paypal' ], function() {
 
 });
 
+Route::group(['as'=> 'inventario.' ,'prefix'=> 'inventario' , 'middleware' => ['auth:jogador']], function() {
+
+    Route::get('', ['as'=> 'index', 'uses'=> 'InventarioController@index']);
+    Route::get('credito/{id}', ['as'=> 'index', 'uses'=> 'InventarioController@credito']);
+    Route::get('resgate/{id}', ['as'=> 'index', 'uses'=> 'InventarioController@resgate']);
+
+
+});
 
 
 
