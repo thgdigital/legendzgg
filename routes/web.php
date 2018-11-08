@@ -196,7 +196,7 @@ Route::group(['as'=> 'inventario.' ,'prefix'=> 'inventario' , 'middleware' => ['
 
     Route::get('', ['as'=> 'index', 'uses'=> 'InventarioController@index']);
     Route::get('credito/{id}', ['as'=> 'index', 'uses'=> 'InventarioController@credito']);
-    Route::get('resgate/{id}', ['as'=> 'index', 'uses'=> 'InventarioController@resgate']);
+    Route::post('resgate', ['as'=> 'resgate', 'uses'=> 'InventarioController@resgate']);
 
 
 });

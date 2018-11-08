@@ -6,6 +6,7 @@ use App\Models\TipoItem;
 use App\Repositories\InventariosRepository;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 
 class InventarioController extends Controller
 {
@@ -36,17 +37,34 @@ class InventarioController extends Controller
 
         $inventario = $this->repository->jogadorItems($userId)->get();
 
+        if (Input::get('tipo') != null)
+        {
+            $tipoID = Input::get('tipo');
+            $inventario = $this->repository->model->with(['jogador' ,'items' => function ($query) use  ($tipoID) {
+                $query->where(['tipo_items_id' => $tipoID]);
+            }])->where(['jogador_id'=> $userId])->get();
+        }
+
+
+
+
        return view('pages.loja-invantario')->with(['inventarios' => $inventario, 'tipos'=> $tipos]);
     }
 
-    public function resgate($id){
+    public function resgate(Request $request){
+        $id = $request->input('id');
+        $invocador = $request->input('invocador');
 
         $inventario = $this->repository->find($id)->with('items')->first();
+        $inventario->compra = 2;
+        $inventario->invocador = $invocador;
+        $saved = $inventario->save();
 
-        $userId  = Auth::user();
+        if($saved){
+            return redirect('inventario')->with(["success" => "Transação realizada com sucesso"]);
+        }
 
-        return $userId->saldo;
-
+        return redirect('inventario')->with(["error" => "Opsss error não conseguimos realizar a transação"]);
     }
 
     public function credito($id){

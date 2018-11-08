@@ -40,7 +40,7 @@
                 <li class="active-inventario">
                     <a href="{{url('inventario?tipo='.$tipo->id)}}">{{$tipo->name}}</a>
                 </li>
-             
+
                 @endforeach
             </ul>
             @endisset
@@ -99,6 +99,7 @@
                     @foreach ($inventarios as $compra)
 
                         <?php if( $compra->compra != 1){?>
+                            @isset ($compra->items)
                         <li>
                             <a data-fancybox data-src="#hidden-content-<?php echo $compra->items->id; ?>" href="javascript:;">
                             <div class="thumbnail-loja">
@@ -108,7 +109,7 @@
                                 ?>
                                 <img  src="<?=
 
-                                Croppa::url("/storage/rifas/$path", 166,150)?>" /></a>
+                                Croppa::url("/storage/rifas/$path", 166,150)?>" />
 
                                 <div class="description-loja">
                                     <span class="title-loja">{{$compra->items->name}}</span>
@@ -151,7 +152,8 @@
                         </button>
                     </div>
                     <div class="col-sm-6">
-                        <button class="btn btn-lg btn-amarelo compras-resgate"  compra-resgate="{{$compra->id}}"
+
+                        <button class="btn btn-lg btn-amarelo compras-resgate" fancy="hidden-resgate-<?php echo  $compra->items->id; ?>"  compra-resgate="{{$compra->id}}"
                         <?php echo ($compra->items->resgatavel == 0)  ? 'disabled="disabled"' :'' ?>
 
                         >
@@ -163,7 +165,27 @@
                 </div>
             </div>
         </div>
+                            <div style="display: none; width: 560px; height: 300px; background: #ffffff !important; "  class="modal-inventario"  id="hidden-resgate-<?php echo  $compra->items->id; ?>">
+                                <form method="POST" id="formResgate" action="{{route('inventario.resgate')}}">
+                                    {{ csrf_field() }}
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="form-group">
+                                                <label>Informe para qual invocador deseja enviar este item?<br/>
+                                                <small>(Lembre-se de enviar corretamente os dados para recibimento do item no LoL)</small></label>
+                                                <textarea rows="5" cols="5"  name="invocador" type="text" class="form-control" placeholder="Digite o invocador" required></textarea>
+                                                <input type="hidden" name="id" value="{{$compra->id}}">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <input type="submit" value="Enviar dados" class="btn btn-primary btn-sm">
+                                </form>
+
+                                </div>
+
+
                         </li>
+                            @endisset
                             <?php } ?>
                     @endforeach
                 @endisset

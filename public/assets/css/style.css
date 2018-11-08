@@ -8496,3 +8496,11 @@ input[id*="modal_"]:checked + div.modal-loja .modal-content-loja {
 	border: 1px solid #ececec;
 	background-color: #ccc;
 }
+.modal-inventario button.fancybox-close-small{
+	color: #000000;
+
+}
+#formResgate small{
+	font-size: 12px;
+	font-style: italic;
+}

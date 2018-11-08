@@ -15,8 +15,16 @@ $(function () {
 
 
     $(".compras-resgate").click(function (event) {
-        var creditoID = $(this).attr("compra-resgate");
-        window.location.href = baseUrl+"/inventario/resgate/"+creditoID
+        var id = $(this).attr("fancy");
+        parent.jQuery.fancybox.getInstance().close();
+
+        $.fancybox.open($('#' + id), {
+
+            onComplete : function(){
+                console.log('fui chamado');
+            }
+        });
+
 
         event.preventDefault;
     });
